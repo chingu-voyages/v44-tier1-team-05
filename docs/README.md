@@ -1,4 +1,4 @@
-# voyage-project-tier1-arraygame
+# voyage-project-tier1-arraygame-team 05
 
 ## Table of Contents
 
