@@ -2,5 +2,6 @@
 
 - [Alex Papparotto-Goodman](https://github.com/goodman2814)
 - [Gabriela de Paula](https://github.com/PaulaR-05)
+- [John Foughty](https://github.com/Foughty)
 - [Nazgul Duisenbay](https://github.com/nazgul7d)
 
