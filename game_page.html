@@ -10,6 +10,23 @@
   <body>
     <header></header>
     <main>
+      <div class="gameControl">
+        <div class="gameControl_btn">
+          <!--New Game and should execute a modal-->
+            <button>New Game</button>
+            <!-- button clicked and it executes rollThatDice()-->
+            <button onclick="rollThatDice()">Roll Dice</button>
+            <!-- allow user to clear the grid and to start refilling it using the values from the current roll. This allows the user to try different options.-->
+            <button>Clear Grid</button>
+            <!-- allow user to submit their answer-->
+            <button>Submit Answer</button>
+        </div>
+        <div class="gameControl_dice">
+          <img id="dice01" src="https://bit.ly/dice-unknown"/>  
+          <img id="dice02" src="https://bit.ly/dice-unknown"/>      
+          <!-- A link to the roll sound you hear-->
+          <audio id="audio" src="https://bit.ly/dice-sound"></audio>            
+      </div>
       <div class = "game-board">
         <div class="box"></div> <div class="box"></div>
         <div class="box"></div> <div class="box"></div>
@@ -61,23 +78,6 @@
         <div class="box"></div> <div class="box"></div>
         <div class="box"></div> <div class="box"></div>
         <div class="box"></div> <div class="box"></div>
-    </div>
-       <div class="gameControl">
-      <div class="gameControl_btn">
-        <!--New Game and should execute a modal-->
-          <button>New Game</button>
-          <!-- button clicked and it executes rollThatDice()-->
-          <button onclick="rollThatDice()">Roll Dice</button>
-          <!-- allow user to clear the grid and to start refilling it using the values from the current roll. This allows the user to try different options.-->
-          <button>Clear Grid</button>
-          <!-- allow user to submit their answer-->
-          <button>Submit Answer</button>
-      </div>
-      <div class="gameControl_dice">
-        <img id="dice01" src="https://bit.ly/dice-unknown"/>  
-        <img id="dice02" src="https://bit.ly/dice-unknown"/>      
-        <!-- A link to the roll sound you hear-->
-        <audio id="audio" src="https://bit.ly/dice-sound"></audio>            
     </div>
     </main>
     <footer>
