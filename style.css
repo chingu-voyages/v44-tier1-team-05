@@ -278,3 +278,50 @@ textarea {
         page-break-after: avoid;
     }
 }
+
+@-webkit-keyframes spindice {
+  0% {
+    transform: rotate(0deg);
+    filter: blur(5px);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: blur(5px);
+  }
+}
+
+@keyframes spindice {
+  0% {
+    transform: rotate(0deg);
+    filter: blur(5px);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: blur(5px);
+  }
+}
+img {
+  width: 15vh;
+  padding: 2vh;
+  -webkit-animation: none;
+  animation: none;
+}
+
+button {
+  font-size: 2vh;
+  color: #fff;
+  background-color: rgb(250, 112, 112);
+  height: auto;
+  border: none;
+  padding: 1vh 2vh;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 1s;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+button:hover {
+  background-color: #f70f0f;
+  color: #ffffff;
+}
+
