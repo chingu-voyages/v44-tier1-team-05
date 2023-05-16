@@ -8,7 +8,6 @@ var diceFaces = [
   "https://bit.ly/dice-six",
 ];
 
-// Cleans up code later
 var imageDiceOne = document.getElementById("dice01");
 var imageDiceTwo = document.getElementById("dice02");
 var audio = document.getElementById("audio");
@@ -19,7 +18,7 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
+// Roll dice function
 function rollThatDice() {
   audio.currentTime = 0;
   imageDiceOne.style.animation = "spindice 0.25s";
