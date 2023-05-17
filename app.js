@@ -7,9 +7,10 @@ let diceFaces = [
   "https://bit.ly/dice-five",
   "https://bit.ly/dice-six",
 ];
-
+let rollD = document.querySelector("#rollDice");
 let imageDiceOne = document.getElementById("dice01");
 let imageDiceTwo = document.getElementById("dice02");
+let resultDic = document.querySelector(".diceResult01");
 let audio = document.getElementById("audio");
 
 // function sets minutes and seconds
@@ -28,7 +29,7 @@ function startTimer(duration, display) {
     if (--timer < 10) {
       timer = duration;
     }
-  }, 2000);
+  }, 1000);
 }
 // add the countdown time to the HTML page and start regressive time
 function startCount() {
@@ -40,31 +41,35 @@ function startCount() {
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  result = Math.floor(Math.random() * (max - min + 1)) + min;
+  console.log(result);
+  return result;
 }
+
 // Roll dice function
 function rollThatDice() {
   audio.currentTime = 0;
   imageDiceOne.style.animation = "spindice 0.25s";
   setTimeout(function () {
     imageDiceOne.setAttribute("src", diceFaces[getRandomInt(1, 6)]);
+    c = result;
   }, 150);
-
+  setTimeout(function () {
+    imageDiceTwo.setAttribute("src", diceFaces[getRandomInt(1, 6)]);
+    d = result;
+    resultDic.innerHTML = c + " x " + d;
+  }, 150);
   setTimeout(function () {
     imageDiceOne.style.animation = "none";
   }, 250);
   audio.play();
   imageDiceTwo.style.animation = "spindice 0.25s";
   setTimeout(function () {
-    imageDiceTwo.setAttribute("src", diceFaces[getRandomInt(1, 6)]);
-  }, 150);
-
-  setTimeout(function () {
     imageDiceTwo.style.animation = "none";
   }, 250);
   audio.play();
 }
 
-document.addEventListener("DOMContentLoaded", function (event) {
+rollD.addEventListener("click", function (event) {
   rollThatDice();
 });
