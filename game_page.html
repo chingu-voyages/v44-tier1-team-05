@@ -13,102 +13,155 @@
       <div class="gameControl">
         <div class="gameControl_btn">
           <!--New Game and should execute a modal-->
-            <button>New Game</button>
-            <!-- button clicked and it executes rollThatDice()-->
-            <button onclick="rollThatDice()">Roll Dice</button>
-            <!-- allow user to clear the grid and to start refilling it using the values from the current roll. This allows the user to try different options.-->
-            <button>Clear Grid</button>
-            <!-- allow user to submit their answer-->
-            <button>Submit Answer</button>
+          <button onclick="startCount()">New Game</button>
+          <!-- button clicked and it executes rollThatDice()-->
+          <button onclick="rollThatDice()">Roll Dice</button>
+          <!-- allow user to clear the grid and to start refilling it using the values from the current roll. This allows the user to try different options.-->
+          <button>Clear Grid</button>
+          <!-- allow user to submit their answer-->
+          <button>Submit Answer</button>
         </div>
         <div class="gameControl_dice">
-          <img id="dice01" src="https://bit.ly/dice-unknown"/>  
-          <img id="dice02" src="https://bit.ly/dice-unknown"/>      
+          <img id="dice01" src="https://bit.ly/dice-unknown" />
+          <img id="dice02" src="https://bit.ly/dice-unknown" />
           <!-- A link to the roll sound you hear-->
-          <audio id="audio" src="https://bit.ly/dice-sound"></audio>            
+          <audio id="audio" src="https://bit.ly/dice-sound"></audio>
+        </div>
+        <div class="gameControl_countdown">
+          <div id="countdown"></div>
+        </div>
       </div>
-        <table>
+      <table>
         <!--Leaderboard-->
         <h1>Leaderboard</h1>
-          <tr>
+        <tr>
           <!--The three ways the game can end-->
-            <th>Player_Name</th>
-            <th>Time is up</th>
-            <th>Grid is full</th>
-            <th>Two losses</th>
-            <th>Total</th>
-          </tr>
-          <tr>
+          <th>Player_Name</th>
+          <th>Time is up</th>
+          <th>Grid is full</th>
+          <th>Two losses</th>
+          <th>Total</th>
+        </tr>
+        <tr>
           <!--User can see the display of the total number of wins and losses for each-->
           <!--User can see the tally of wins for each of the three ways the game can end-->
-            <td>Wins</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
+          <td>Wins</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
           <!--User can see the tally of losses for each of the three ways the game can end-->
-            <td>Losses</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
- 
-        </table>
-      <div class = "game-board">
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-        <div class="box"></div> <div class="box"></div>
-    </div>
+          <td>Losses</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </table>
+      <div class="game-board">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
     </main>
     <footer>
       <span>&lt;/&gt; with </span>❤️<span> by </span>
@@ -119,13 +172,25 @@
         <a href="https://github.com/MoriahSWalker" target="_blank">Moriah</a>,
         <a href="https://github.com/Foughty" target="_blank"> John</a>
       </span>
-      <hr>
+      <hr />
       <span> © 2023 </span>
-      <span>Inspired by <a href="https://www.chingu.io" target="_blank">Chingu</a>. Built for Voyage 44. | 
-        <a href="https://github.com/chingu-voyages/v44-tier1-team-05" target="_blank">View Source</a> | 
-        <a href="https://github.com/chingu-voyages/v44-tier1-team-05/" target="_blank">Learn More</a>
-      </span> | 
-        <a href="#" id="developersPage">Meet Team 05</a>
+      <span
+        >Inspired by <a href="https://www.chingu.io" target="_blank">Chingu</a>.
+        Built for Voyage 44. |
+        <a
+          href="https://github.com/chingu-voyages/v44-tier1-team-05"
+          target="_blank"
+          >View Source</a
+        >
+        |
+        <a
+          href="https://github.com/chingu-voyages/v44-tier1-team-05/"
+          target="_blank"
+          >Learn More</a
+        >
+      </span>
+      |
+      <a href="#" id="developersPage">Meet Team 05</a>
     </footer>
     <script src="app.js"></script>
   </body>
