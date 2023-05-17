@@ -93,6 +93,25 @@ squares.forEach(square => {
 }
 }
 
+function clearGrid() {
+  // Get all the grid squares
+  const squares = document.querySelectorAll(".box");
+
+  // Remove the "occupied" class from all the squares
+  squares.forEach((square) => {
+    square.classList.remove("occupied");
+  });
+
+  // Clear the error message
+  const errorMessage = document.getElementById("error");
+  errorMessage.textContent = "";
+}
+
+// Attach the function to the button's click event
+const clearButton = document.getElementById("clear-btn");
+clearButton.addEventListener("click", clearGrid);
+
+
 
 
 
