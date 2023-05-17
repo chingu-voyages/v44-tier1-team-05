@@ -97,6 +97,7 @@ textarea {
 .box {
   background-color: gray;
   border: 1px solid black;
+  cursor: pointer;
 }
 
 @-webkit-keyframes spindice {
