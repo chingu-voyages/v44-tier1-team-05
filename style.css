@@ -325,3 +325,6 @@ button:hover {
     page-break-after: avoid;
   }
 }
+.occupied {
+  background-color: rgb(241, 222, 16);
+}
