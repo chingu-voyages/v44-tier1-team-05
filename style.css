@@ -330,7 +330,7 @@ button:hover {
   background-color: rgb(241, 222, 16);
 }
 /* style for error message */
-error {
+#error {
   color: rgb(218, 108, 19);
   font-weight: bold;
   text-align: center;
