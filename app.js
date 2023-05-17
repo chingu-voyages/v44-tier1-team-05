@@ -57,7 +57,7 @@ function rollThatDice() {
   setTimeout(function () {
     imageDiceTwo.setAttribute("src", diceFaces[getRandomInt(1, 6)]);
     d = result;
-    resultDic.innerHTML = c + " x " + d;
+    resultDic.innerHTML = c + " x " + d+" = ";
   }, 150);
   setTimeout(function () {
     imageDiceOne.style.animation = "none";
