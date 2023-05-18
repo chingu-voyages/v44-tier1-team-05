@@ -101,7 +101,7 @@ function checkAnswer() {
   );
   let markedSquares = document.querySelectorAll(".occupied").length;
 
-  if (markedSquares != dice1 + dice2) {
+  if (markedSquares != dice1 * dice2) {
     // Display error message
     document.getElementById("error").textContent =
       "The number of marked squares doesn't match the numbers on the dice. Please mark the grid to match the dice.";
