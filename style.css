@@ -373,18 +373,13 @@ button:hover {
 /* Style for the cell with id "grid-full-cell" */
 #grid-full-cell {
   background-color: #dc3545;
-  color: #fff;
+  color: rgb(0, 0, 0);
 }
 
 /* Style for the cell with id "two-losses-cell" */
 #two-losses-cell {
   background-color: #17a2b8;
-  color: #fff;
-}
-
-/* Style for the cell with id "total-wins" */
-#total-wins {
-  font-weight: bold;
+  color: rgb(0, 0, 0);
 }
 
 /* Style for even rows */
