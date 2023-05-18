@@ -27,7 +27,7 @@
         <div class="gameControl_dice">
           <img id="dice01" src="https://bit.ly/dice-unknown" />
           <img id="dice02" src="https://bit.ly/dice-unknown" />
-          <p class="diceResult01"></p>
+          <p class="diceResult"></p>
           <!-- A link to the roll sound you hear-->
           <audio id="audio" src="https://bit.ly/dice-sound"></audio>
         </div>
@@ -65,56 +65,106 @@
         <div><p id="countdown"></p></div>
       </div>
       <div class="game-board">
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div> <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
+        <div class="box" onclick="markSquare(this)"></div>
       </div>
     </main>
     <footer>

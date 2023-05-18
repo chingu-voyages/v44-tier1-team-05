@@ -10,6 +10,7 @@ var diceFaces = [
 
 var imageDiceOne = document.getElementById("dice01");
 var imageDiceTwo = document.getElementById("dice02");
+let displayDice = document.querySelector(".diceResult");
 var audio = document.getElementById("audio");
 
 // Gets a random integer, min & max inclusive
@@ -43,6 +44,7 @@ function rollThatDice() {
     imageDiceTwo.style.animation = "none";
   }, 250);
   audio.play();
+  displayDice.innerHTML = diceOneValue + " x " + diceTwoValue + " = ";
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 // Add event listener to submit button
 let submitButton = document.getElementById("submit");
-submitButton.addEventListener("click", function() {
+submitButton.addEventListener("click", function () {
   checkAnswer();
 });
 
@@ -62,35 +64,39 @@ function markSquare(square) {
   } else {
     square.classList.add("occupied");
   }
-  }
+}
 
 function checkAnswer() {
-let dice1 = parseInt(document.getElementById("dice01").getAttribute("data-value"));
-let dice2 = parseInt(document.getElementById("dice02").getAttribute("data-value"));
-let markedSquares = document.querySelectorAll(".occupied").length;
+  let dice1 = parseInt(
+    document.getElementById("dice01").getAttribute("data-value")
+  );
+  let dice2 = parseInt(
+    document.getElementById("dice02").getAttribute("data-value")
+  );
+  let markedSquares = document.querySelectorAll(".occupied").length;
 
-if (markedSquares != dice1 + dice2) {
-// Display error message
-document.getElementById("error").textContent = "The number of marked squares doesn't match the numbers on the dice. Please mark the grid to match the dice.";
+  if (markedSquares != dice1 + dice2) {
+    // Display error message
+    document.getElementById("error").textContent =
+      "The number of marked squares doesn't match the numbers on the dice. Please mark the grid to match the dice.";
 
-// Clear all occupied squares
-let squares = document.querySelectorAll(".occupied");
-squares.forEach(square => {
-    square.classList.remove("occupied");
-});
+    // Clear all occupied squares
+    let squares = document.querySelectorAll(".occupied");
+    squares.forEach((square) => {
+      square.classList.remove("occupied");
+    });
+  } else {
+    // Clear error message
+    document.getElementById("error").textContent = "Good Job!";
 
-} else {
-  // Clear error message
-  document.getElementById("error").textContent = "Good Job!";
-
-  // Enable all disabled squares
-  squares = document.querySelectorAll(".box");
-  squares.forEach(square => {
-  if (square.classList.contains("disabled")) {
-      square.classList.remove("disabled");
+    // Enable all disabled squares
+    squares = document.querySelectorAll(".box");
+    squares.forEach((square) => {
+      if (square.classList.contains("disabled")) {
+        square.classList.remove("disabled");
+      }
+    });
   }
-  });
-}
 }
 
 function clearGrid() {
@@ -110,8 +116,3 @@ function clearGrid() {
 // Attach the function to the button's click event
 const clearButton = document.getElementById("clear-btn");
 clearButton.addEventListener("click", clearGrid);
-
-
-
-
-
