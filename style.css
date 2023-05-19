@@ -151,6 +151,74 @@ button:hover {
   color: #ffffff;
 }
 
+.occupied {
+  background-color: rgb(241, 222, 16);
+}
+
+/* style for error message */
+#error {
+  color: rgb(218, 108, 19);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* Style for the leaderboard */
+#leaderboard-table {
+  width: 0%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Style for the table headers */
+#leaderboard-table th {
+  padding: 10px;
+  text-align: center;
+  background-color: #ddd;
+}
+
+/* Style for the table cells */
+#leaderboard-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+/* Style for the first column of the table */
+#leaderboard-table td:first-child,
+#leaderboard-table th:first-child {
+  text-align: left;
+}
+
+/* Style for the cell with id "time-up-cell" */
+#time-up-cell {
+  background-color: #ffc107;
+}
+
+/* Style for the cell with id "grid-full-cell" */
+#grid-full-cell {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* Style for the cell with id "two-losses-cell" */
+#two-losses-cell {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+/* Style for the cell with id "total-wins" */
+#total-wins {
+  font-weight: bold;
+}
+
+/* Style for even rows */
+#leaderboard-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
 
 /* ==========================================================================
      Helper classes
@@ -325,6 +393,9 @@ button:hover {
   h3 {
     page-break-after: avoid;
   }
+
+}
+
 }
 .occupied {
   background-color: rgb(241, 222, 16);

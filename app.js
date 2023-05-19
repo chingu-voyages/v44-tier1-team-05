@@ -9,10 +9,47 @@ let diceFaces = [
 ];
 
 let rollD = document.querySelector("#rollDice");
+let playButton = document.getElementById("play-btn");
+let clearButton = document.getElementById("clear-btn");
+let newGameButton = document.getElementById("newGame-btn");
+let submitButton = document.getElementById("submit-btn");
 let imageDiceOne = document.getElementById("dice01");
 let imageDiceTwo = document.getElementById("dice02");
 let displayDice = document.querySelector(".diceResult");
 let audio = document.getElementById("audio");
+
+//Start game with buttons disabled.
+disableButtons();
+
+// Add an event listener to the initial button
+playButton.addEventListener("click", function () {
+  // Enable the four buttons
+  enableButtons();
+});
+
+function enableButtons() {
+  //Enable the four buttons
+  rollD.disabled = false;
+  clearButton.disabled = false;
+  newGameButton.disabled = false;
+  submitButton.disabled = false;
+
+  //Clear PLAY message
+  const clearStart = document.getElementById("start");
+  clearStart.textContent = "";
+
+  // Clear the error message
+  const errorMessage = document.getElementById("error");
+  errorMessage.textContent = "";
+}
+
+function disableButtons() {
+  //Disable the four buttons
+  rollD.disabled = true;
+  clearButton.disabled = true;
+  newGameButton.disabled = true;
+  submitButton.disabled = true;
+}
 
 // function sets minutes and seconds
 function startTimer(duration, display) {
@@ -78,9 +115,12 @@ rollD.addEventListener("click", function (event) {
 });
 
 // Add event listener to submit button
+
 let submitButton = document.getElementById("submit-btn");
+
 submitButton.addEventListener("click", function () {
   checkAnswer();
+  // disableButtons();
 });
 
 // Add event listener to new game button
@@ -148,7 +188,6 @@ function clearGrid() {
 }
 
 // Attach the function to the button's click event
-const clearButton = document.getElementById("clear-btn");
 clearButton.addEventListener("click", clearGrid);
 
 function emptyLeaderboard() {
