@@ -116,19 +116,18 @@ rollD.addEventListener("click", function (event) {
 
 // Add event listener to submit button
 
-let submitButton = document.getElementById("submit-btn");
-
 submitButton.addEventListener("click", function () {
   checkAnswer();
   // disableButtons();
 });
 
 // Add event listener to new game button
-let newGameButton = document.getElementById("new-game-btn");
-newGameButton.addEventListener("click", function() {
+
+newGameButton.addEventListener("click", function () {
   clearGrid();
   rollThatDice();
-  emptyLeaderboard(); 
+  emptyLeaderboard();
+  window.location.reload();
 });
 
 // Define the markSquare() function here
@@ -201,7 +200,3 @@ function emptyLeaderboard() {
   document.getElementById("two-losses-loss").textContent = "0";
   document.getElementById("total-loss").textContent = "0";
 }
-
-
-
-
