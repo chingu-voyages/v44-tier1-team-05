@@ -19,9 +19,9 @@
           <!-- allow user to clear the grid and to start refilling it using the values from the current roll. This allows the user to try different options.-->
           <button id="clear-btn" onclick="clearGrid()">Clear Grid</button>
           <!--New Game and should execute a modal-->
-          <button>New Game</button>
+          <button id="new-game-btn">New Game</button>
           <!-- allow user to submit their answer-->
-          <button id="submit-btn" onclick="checkAnswer()">Submit Answer</button>
+          <button id="submit-btn">Submit Answer</button>
           <p id="error"></p>
         </div>
         <div class="gameControl_dice">
@@ -55,10 +55,10 @@
         <tr>
           <!--User can see the tally of losses for each of the three ways the game can end-->
           <td>Losses</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
+          <td id="time-up-loss">0</td>
+          <td id="grid-full-loss">0</td>
+          <td id="two-losses-loss">0</td>
+          <td id="total-loss">0</td>
         </tr>
       </table>
       <div class="game_countdown">

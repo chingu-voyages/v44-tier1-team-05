@@ -78,9 +78,17 @@ rollD.addEventListener("click", function (event) {
 });
 
 // Add event listener to submit button
-let submitButton = document.getElementById("submit");
+let submitButton = document.getElementById("submit-btn");
 submitButton.addEventListener("click", function () {
   checkAnswer();
+});
+
+// Add event listener to new game button
+let newGameButton = document.getElementById("new-game-btn");
+newGameButton.addEventListener("click", function() {
+  clearGrid();
+  rollThatDice();
+  emptyLeaderboard(); 
 });
 
 // Define the markSquare() function here
@@ -142,3 +150,19 @@ function clearGrid() {
 // Attach the function to the button's click event
 const clearButton = document.getElementById("clear-btn");
 clearButton.addEventListener("click", clearGrid);
+
+function emptyLeaderboard() {
+  // Reset the win and loss counts to zero
+  document.getElementById("time-up-wins").textContent = "0";
+  document.getElementById("grid-full-wins").textContent = "0";
+  document.getElementById("two-losses-wins").textContent = "0";
+  document.getElementById("total-wins").textContent = "0";
+  document.getElementById("time-up-loss").textContent = "0";
+  document.getElementById("grid-full-loss").textContent = "0";
+  document.getElementById("two-losses-loss").textContent = "0";
+  document.getElementById("total-loss").textContent = "0";
+}
+
+
+
+
