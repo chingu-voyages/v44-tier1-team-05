@@ -171,7 +171,7 @@ function checkAnswer() {
     squares.forEach((square) => {
       if (square.classList.contains("occupied")) {
         square.classList.remove("occupied");
-        square.classList.add("block");
+        square.classList.add("block"); // add a block then the user cannot change the square
       }
       if (square.classList.contains("disabled")) {
         square.classList.remove("disabled");
