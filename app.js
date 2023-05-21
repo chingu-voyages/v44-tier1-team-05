@@ -17,6 +17,8 @@ let imageDiceOne = document.getElementById("dice01");
 let imageDiceTwo = document.getElementById("dice02");
 let displayDice = document.querySelector(".diceResult");
 let audio = document.getElementById("audio");
+let divElements = document.querySelectorAll(".box");
+let divArray = Array.from(divElements);
 
 //Start game with buttons disabled.
 disableButtons();
@@ -135,7 +137,7 @@ function markSquare(square) {
   if (square.classList.contains("occupied")) {
     square.classList.remove("occupied");
   } else {
-    square.classList.add("occupied");
+    square.classList.toggle("occupied");
   }
 }
 
@@ -146,9 +148,11 @@ function checkAnswer() {
   let dice2 = parseInt(
     document.getElementById("dice02").getAttribute("data-value")
   );
-  let markedSquares = document.querySelectorAll(".occupied").length;
-
-  if (markedSquares != dice1 * dice2) {
+  var filterWord = divArray.filter(function (elemento) {
+    return elemento.classList.contains("occupied");
+  });
+  console.log(dice1 * dice2, filterWord.length);
+  if (filterWord.length !== dice1 * dice2) {
     // Display error message
     document.getElementById("error").textContent =
       "The number of marked squares doesn't match the numbers on the dice. Please mark the grid to match the dice.";
@@ -165,6 +169,10 @@ function checkAnswer() {
     // Enable all disabled squares
     squares = document.querySelectorAll(".box");
     squares.forEach((square) => {
+      if (square.classList.contains("occupied")) {
+        square.classList.remove("occupied");
+        square.classList.add("block");
+      }
       if (square.classList.contains("disabled")) {
         square.classList.remove("disabled");
       }
