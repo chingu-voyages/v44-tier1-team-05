@@ -218,8 +218,6 @@ button:hover {
   background-color: #f2f2f2;
 }
 
-
-
 /* ==========================================================================
      Helper classes
      ========================================================================== */
@@ -313,9 +311,9 @@ button:hover {
 }
 
 @media print,
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 1.25dppx),
-(min-resolution: 120dpi) {
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
 
@@ -326,7 +324,6 @@ button:hover {
      ========================================================================== */
 
 @media print {
-
   *,
   *::before,
   *::after {
@@ -393,12 +390,14 @@ button:hover {
   h3 {
     page-break-after: avoid;
   }
-
 }
 
-}
 .occupied {
-  background-color: rgb(241, 222, 16);
+  background-color: rgb(252, 231, 4);
+}
+
+.block {
+  background-color: rgb(255, 102, 0);
 }
 /* style for error message */
 #error {
@@ -406,7 +405,7 @@ button:hover {
   font-weight: bold;
   text-align: center;
   margin-top: 10px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 /* Style for the leaderboard */
