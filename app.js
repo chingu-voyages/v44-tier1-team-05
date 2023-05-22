@@ -87,6 +87,8 @@ function getRandomInt(min, max) {
 // Roll dice function
 function rollThatDice() {
   audio.currentTime = 0;
+  // clear error message
+  document.getElementById("error").textContent = " ";
   imageDiceOne.style.animation = "spindice 0.25s";
   let diceOneValue = getRandomInt(1, 6);
   setTimeout(function () {
