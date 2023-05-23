@@ -110,6 +110,9 @@ function rollThatDice() {
   }, 250);
   audio.play();
   displayDice.innerHTML = diceOneValue + " x " + diceTwoValue + " = ";
+
+  // Disable roll dice button
+  rollD.disabled = true;
 }
 
 rollD.addEventListener("click", function (event) {
@@ -165,6 +168,8 @@ function checkAnswer() {
   } else {
     // Clear error message
     document.getElementById("error").textContent = "Good Job!";
+    // Enable roll dice button
+    rollD.disabled = false;
 
     // Enable all disabled squares
     squares = document.querySelectorAll(".box");
