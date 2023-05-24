@@ -12,7 +12,7 @@
 
 ### The Project
 
-![The Array Game](./images/array-game-top.jpeg | width=100)
+![The Array Game](./images/array-game-top.jpeg)
 
 The Array Game is designed to help early learners build and expand on their
 multiplication skill for the numbers 1-6. Players use a simple grid that
