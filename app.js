@@ -13,12 +13,15 @@ let playButton = document.getElementById("play-btn");
 let clearButton = document.getElementById("clear-btn");
 let newGameButton = document.getElementById("newGame-btn");
 let submitButton = document.getElementById("submit-btn");
+let skipButton = document.getElementById("skip-btn");
 let imageDiceOne = document.getElementById("dice01");
 let imageDiceTwo = document.getElementById("dice02");
 let displayDice = document.querySelector(".diceResult");
 let audio = document.getElementById("audio");
-let divElements = document.querySelectorAll(".box");
-let divArray = Array.from(divElements);
+let squares = document.querySelectorAll(".box");
+let startMessage = document.getElementById("start");
+let errorMessage = document.getElementById("error");
+let divArray = Array.from(squares);
 
 //Start game with buttons disabled.
 disableButtons();
@@ -27,6 +30,31 @@ disableButtons();
 playButton.addEventListener("click", function () {
   // Enable the four buttons
   enableButtons();
+  //Begin Timer
+  startCount();
+  //Clear the messages
+  clearMessages();
+});
+
+// add event listener to rollDice button
+rollD.addEventListener("click", function (event) {
+  rollThatDice();
+});
+
+// Add event listener to submit button
+submitButton.addEventListener("click", function () {
+  checkAnswer();
+  // disableButtons();
+});
+
+// Add event listener to new game button
+newGameButton.addEventListener("click", function () {
+  clearGrid();
+  // rollThatDice();
+  // startCount();
+  emptyLeaderboard();
+  window.location.reload();
+  endGame();
 });
 
 function enableButtons() {
@@ -35,14 +63,6 @@ function enableButtons() {
   clearButton.disabled = false;
   newGameButton.disabled = false;
   submitButton.disabled = false;
-
-  //Clear PLAY message
-  const clearStart = document.getElementById("start");
-  clearStart.textContent = "";
-
-  // Clear the error message
-  const errorMessage = document.getElementById("error");
-  errorMessage.textContent = "";
 }
 
 function disableButtons() {
@@ -53,12 +73,23 @@ function disableButtons() {
   submitButton.disabled = true;
 }
 
+function clearMessages() {
+  //Clear PLAY message
+  startMessage.textContent = "";
+
+  // Clear the error message
+  errorMessage.textContent = "";
+}
+
+// declare results as global variable
+let timeResults = [];
+
 // function sets minutes and seconds
 function startTimer(duration, display) {
   let timer = duration,
     minutes,
     seconds;
-  setInterval(function () {
+  let interval = setInterval(function () {
     minutes = parseInt(timer / 60, 10);
     seconds = parseInt(timer % 60, 10);
 
@@ -66,16 +97,42 @@ function startTimer(duration, display) {
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
     display.textContent = minutes + ":" + seconds;
-    if (--timer < 10) {
-      timer = duration;
+    if (--timer < 0) {
+      clearInterval(interval);
+      display.textContent = "00:00 Time's up!";
+      timeResults.push("loss");
+      timeUpWinsAndLosses(timeResults);
+      disableButtons();
     }
   }, 1000);
 }
+
+// function to capture time up wins and losses
+function timeUpWinsAndLosses(results) {
+  // create a variable to hold the losses
+  let timeLosses = 0;
+
+  // loop through the results array
+  for (let i = 0; i < results.length; i++) {
+    if (results[i] === "win") {
+      timeWins++;
+    } else if (results[i] === "loss") {
+      timeLosses++;
+    }
+  }
+  // display results
+  document.getElementById("time-up-loss").textContent = timeLosses;
+}
+
 // add the countdown time to the HTML page and start regressive time
 function startCount() {
-  let duration = 60 * 2; // transform seconds to minutes
+  let duration = 60; // transform seconds to minutes
   let display = document.querySelector("#countdown");
   startTimer(duration, display);
+}
+
+function stopTimer() {
+  clearInterval(interval);
 }
 
 // Gets a random integer, min & max inclusive
@@ -117,26 +174,6 @@ function rollThatDice() {
   rollD.disabled = true;
 }
 
-rollD.addEventListener("click", function (event) {
-  rollThatDice();
-});
-
-// Add event listener to submit button
-
-submitButton.addEventListener("click", function () {
-  checkAnswer();
-  // disableButtons();
-});
-
-// Add event listener to new game button
-
-newGameButton.addEventListener("click", function () {
-  clearGrid();
-  rollThatDice();
-  emptyLeaderboard();
-  window.location.reload();
-});
-
 // Define the markSquare() function here
 function markSquare(square) {
   if (square.classList.contains("occupied")) {
@@ -156,11 +193,14 @@ function checkAnswer() {
   var filterWord = divArray.filter(function (elemento) {
     return elemento.classList.contains("occupied");
   });
-  console.log(dice1 * dice2, filterWord.length);
+
   if (filterWord.length !== dice1 * dice2) {
     // Display error message
     document.getElementById("error").textContent =
       "The number of marked squares doesn't match the numbers on the dice. Please mark the grid to match the dice.";
+
+    // Don't let dice roll happen until correct answer is given
+    rollD.disabled = true;
 
     // Clear all occupied squares
     let squares = document.querySelectorAll(".occupied");
@@ -171,10 +211,9 @@ function checkAnswer() {
     // Clear error message
     document.getElementById("error").textContent = "Good Job!";
     // Enable roll dice button
-    rollD.disabled = false;
+    enableButtons();
 
     // Enable all disabled squares
-    squares = document.querySelectorAll(".box");
     squares.forEach((square) => {
       if (square.classList.contains("occupied")) {
         square.classList.remove("occupied");
@@ -187,22 +226,37 @@ function checkAnswer() {
   }
 }
 
-function clearGrid() {
-  // Get all the grid squares
-  const squares = document.querySelectorAll(".box");
+// this function clears ALL of the grid and stops the timer
+function endGame() {
+  // Remove classes from all the squares
+  squares.forEach((square) => {
+    square.classList.remove("occupied");
+    square.classList.remove("block");
+  });
 
+  // Clear dice results
+  displayDice.innerHTML = " ";
+  // Display NEW GAME message
+  startMessage.innerHTML = "Press PLAY to start a NEW GAME!";
+
+  // Stop the timer
+  stopTimer();
+}
+
+function clearGrid() {
   // Remove the "occupied" class from all the squares
   squares.forEach((square) => {
     square.classList.remove("occupied");
   });
 
   // Clear the error message
-  const errorMessage = document.getElementById("error");
   errorMessage.textContent = "";
 }
 
 // Attach the function to the button's click event
-clearButton.addEventListener("click", clearGrid);
+clearButton.addEventListener("click", function () {
+  clearGrid();
+});
 
 function emptyLeaderboard() {
   // Reset the win and loss counts to zero

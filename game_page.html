@@ -13,17 +13,18 @@
       <div class="gameControl">
         <div class="gameControl_btn">
           <!--Start Play-->
-          <button id="play-btn" onclick="startCount()">Play</button>
+          <button id="play-btn">Play</button>
           <!-- button clicked and it executes rollThatDice()-->
-          <button id="rollDice" onclick="rollThatDice()">Roll Dice</button>
+          <button id="rollDice">Roll Dice</button>
           <!-- allow user to clear the grid and to start refilling it using the values from the current roll. This allows the user to try different options.-->
-          <button id="clear-btn" onclick="clearGrid()">Clear Grid</button>
+          <button id="clear-btn">Clear Grid</button>
           <!--New Game and should execute a modal-->
-
           <button id="newGame-btn">New Game</button>
-
+          <!-- skips player turn -->
+          <button id="skip-btn">Skip Turn</button>
           <!-- allow user to submit their answer-->
           <button id="submit-btn">Submit Answer</button>
+
           <p id="error"></p>
           <p id="start">Press PLAY to begin!</p>
         </div>
