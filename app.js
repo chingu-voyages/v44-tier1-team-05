@@ -19,6 +19,8 @@ let displayDice = document.querySelector(".diceResult");
 let audio = document.getElementById("audio");
 let divElements = document.querySelectorAll(".box");
 let divArray = Array.from(divElements);
+let previousRow = null;
+let previousCol = null;
 
 //Start game with buttons disabled.
 disableButtons();
@@ -139,10 +141,27 @@ newGameButton.addEventListener("click", function () {
 
 // Define the markSquare() function here
 function markSquare(square) {
+  document.getElementById("error").textContent = "";
+  const currentIndex = divArray.indexOf(square);
+  const currentRow = Math.floor(currentIndex / 10);
+  const currentCol = currentIndex % 10;
+  let lessRow = currentRow - previousRow;
+  let lessCol = currentCol - previousCol;
+
   if (square.classList.contains("occupied")) {
     square.classList.remove("occupied");
   } else {
-    square.classList.toggle("occupied");
+    if (lessRow === 1 && (lessCol === 1 || lessCol === -1)) {
+      square.classList.remove("occupied");
+      document.getElementById("error").textContent = "Diagonal Not Allowed";
+    } else if (lessRow === -1 && (lessCol === 1 || lessCol === -1)) {
+      square.classList.remove("occupied");
+      document.getElementById("error").textContent = "Diagonal Not Allowed";
+    } else {
+      square.classList.toggle("occupied");
+    }
+    previousRow = currentRow;
+    previousCol = currentCol;
   }
 }
 
