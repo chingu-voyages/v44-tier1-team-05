@@ -1,20 +1,22 @@
-# voyage-project-tier1-arraygame-team 05
+# ![](./images/THE%20ARRAY%20GAME.png)
 
 ## Table of Contents
 
 - [Overview](#overview)
-- [General Instructions](#general-instructions)
 - [Requirements & Specifications](#requirements-specifications)
-- [Acknowledgements](#acknowledgements)
 - [About Chingu](#about-chingu)
+- [Authors](#authors)
+- [Acknowledgements](#acknowledgements)
 
 ## Overview
+
+### The Project
+
+![The Array Game](./images/array-game-top.jpeg | width=100)
 
 The Array Game is designed to help early learners build and expand on their
 multiplication skill for the numbers 1-6. Players use a simple grid that
 visually represents the calculation.
-
-![The Array Game](./images/array-game-top.jpeg)
 
 The goal of this game is to help kids supplement what they are learning about
 multiplication with a fun activity they use for practice.
@@ -37,41 +39,22 @@ The game will end when one of these conditions are reached:
    that player loses the game.
 3. A player completely fills in their grid. This will take longer than the first two options. Depending on the luck of the roll, players may end up forfeiting many turns.
 
-## General Instructions
+### Screenshot
 
-This project is designed to be worked on by a team rather than an individual
-Chingu. This means you and your team will need to thoroughly read and
-understand the requirements and specifications below, **_and_** define and
-manage your project following the _Agile Methodology_ defined in the
-[Voyage Handbook](https://chingucohorts.notion.site/Voyage-Guide-1e528dcbf1d241c9a93b4627f6f1c809).
+### Links
 
-As you create this project make sure it meets all of the requirements, but once
-it reaches MVP, start implementing the optional features or get creative and
-extend it in ways we haven't envisioned. In other words, use the power of
-teamwork to make it distinctive and unique.
+-[Repository](https://github.com/chingu-voyages/v44-tier1-team-05)
 
-Take note that we haven't given specific direction on what your UI/UX should
-look like. This is another area where you and your team can put your creativity
-to work!
+-[Live Site URL](https://chingu-voyages.github.io/v44-tier1-team-05/)
 
 ## Requirements & Specifications
 
-### What You Need to Do
+### What We Need to Do
 
 #### Structure
 
 - [ ] This is a purely frontend application. No backend is required.
-- [ ] You may use any languages, tools, or libraries you prefer when designing and building this app.
-- [ ] You may **_NOT_** use AI-base solution generators like GitHub CoPilot.
-- [ ] Useful links and resources:
-  - [The Array Game](https://www.whatdowedoallday.com/array-game/)
-
-#### Styling
-
-- [ ] Surprise us!!!
-- [ ] Add a footer containing a link to your teams GitHub repo
-- [ ] In general, you will find these [UI design principles](https://www.justinmind.com/ui-design/principles) helpful.
-- [ ] Recommend using this resource for [clean CSS](https://www.devbridge.com/articles/implementing-clean-css-bem-method/)
+- [ ] Useful links and resources: - [The Array Game](https://www.whatdowedoallday.com/array-game/)
 
 #### Functionality
 
@@ -80,6 +63,8 @@ to work!
   - Leaderboard showing the number of games the current player has won and lost
   - Game controls
   - A 10x10 grid the game is played on
+  - View the optimal layout for the interface depending on their device's screen size
+  - See focus and hover states for all interactive elements on the page
 
 - Leaderboard
 
@@ -128,13 +113,35 @@ to work!
       has been rolled.
 - [ ] Support dark/light mode
 
+### Built With
+
+- [Figma](https://www.figma.com/) - A cloud-based design tool
+- [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5) - The web framework used
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - The styling language used
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - The programming language used
+
 ## About Chingu
 
-If you aren’t yet a member of Chingu we invite you to join us. We help our
-members transform what they’ve learned in courses & tutorials into the
-practical experience employers need and want.
+If you aren’t yet a member of Chingu we invite you to join us. Chingu helps members transform what they’ve learned in courses & tutorials into the practical experience employers need and want.
+
+## Authors
+
+- [Chingu Voyages](https://www.chingu.io/) -- Initial work -
+- [Jim Medlock](https://github.com/jdmedlock) -- Initial work --
+- [Alex Papparotto-Goodman](https://github.com/goodman2814) -- Developer --
+- [Gabriela de Paula](https://github.com/PaulaR-05) -- Developer --
+- [John Foughty](https://github.com/Foughty) -- Designer --
+- [Moriah S](https://github.com/MoriahSWalker) -- Developer --
+- [Nazgul Duisenbay](https://github.com/nazgul7d) -- Developer --
 
 ## Acknowledgements
 
-Thanks to our friend [Florin Pop](https://twitter.com/florinpop1705) who
-contributed the initial version on his [App Ideas repo](https://github.com/florinpop17/app-ideas).
+- A big high-five to the staff at [Chingu](https://www.chingu.io/). We would like to to extend our appreciation to everyone for providing us this wonderful oppurtunity!
+
+- A special mention to our personal Mentor, Angela for helping guide us along the way.
+
+- A special mention to [Charlie Britton](https://codepen.io/charliebritton) for the Dice Roller Animation. [Step-by-step Guide](https://codepen.io/charliebritton/pen/RVyBLr)
+
+- Thanks to George Whiting for his tutorial on making a grid for players. [link](https://medium.com/@thewebdevg/creating-a-gameboard-with-css-grid-47da8ac25078)
+
+- Thanks to [Matheus Battisti](https://github.com/matheusbattisti) for his tutorial on creating a countdown timer. [Tutorial Link](https://www.youtube.com/watch?v=nMn2_5kvbHo&t=355s)
