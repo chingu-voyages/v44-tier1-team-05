@@ -1,4 +1,4 @@
-# ![](./images/THE%20ARRAY%20GAME.png)
+![](./images/THE%20ARRAY%20GAME.png)
 
 ## Table of Contents
 
