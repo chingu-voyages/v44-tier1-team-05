@@ -3,7 +3,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Requirements & Specifications](#requirements-specifications)
+- [Requirements & Specifications](#requirements-&-specifications)
 - [About Chingu](#about-chingu)
 - [Authors](#authors)
 - [Acknowledgements](#acknowledgements)
@@ -135,11 +135,7 @@ If you aren’t yet a member of Chingu we invite you to join us. Chingu helps me
 ## Acknowledgements
 
 - A big high-five to the staff at [Chingu](https://www.chingu.io/). We would like to to extend our appreciation to everyone for providing us this wonderful oppurtunity!
-
 - A special mention to our personal Mentor, Angela for helping guide us along the way.
-
+- Thanks to George Whiting for his tutorial on making a grid for players. [Tutorial Link](https://medium.com/@thewebdevg/creating-a-gameboard-with-css-grid-47da8ac25078)
 - A special mention to [Charlie Britton](https://codepen.io/charliebritton) for the Dice Roller Animation. [Step-by-step Guide](https://codepen.io/charliebritton/pen/RVyBLr)
-
-- Thanks to George Whiting for his tutorial on making a grid for players. [link](https://medium.com/@thewebdevg/creating-a-gameboard-with-css-grid-47da8ac25078)
-
 - Thanks to [Matheus Battisti](https://github.com/matheusbattisti) for his tutorial on creating a countdown timer. [Tutorial Link](https://www.youtube.com/watch?v=nMn2_5kvbHo&t=355s)
