@@ -51,12 +51,9 @@ clearButton.addEventListener("click", function () {
 
 // Add event listener to new game button
 newGameButton.addEventListener("click", function () {
-  clearGrid();
+  clearEverything();
   emptyLeaderboard();
-  endGame();
-  // rollThatDice();
-  // startCount();
-  // window.location.reload();
+  window.location.reload();
 });
 
 // Ass event listener to skip button
