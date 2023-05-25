@@ -30,6 +30,8 @@ disableButtons();
 playButton.addEventListener("click", function () {
   // Enable the four buttons
   enableButtons();
+  //End previous Timer
+  stopTimer();
   //Begin Timer
   startCount();
   //Clear the messages
@@ -41,20 +43,34 @@ rollD.addEventListener("click", function (event) {
   rollThatDice();
 });
 
-// Add event listener to submit button
-submitButton.addEventListener("click", function () {
-  checkAnswer();
-  // disableButtons();
+// Attach the function to the button's click event
+clearButton.addEventListener("click", function () {
+  clearGrid();
+  errorMessage.textContent = "Grid cleared!";
 });
 
 // Add event listener to new game button
 newGameButton.addEventListener("click", function () {
   clearGrid();
+  emptyLeaderboard();
+  endGame();
   // rollThatDice();
   // startCount();
-  emptyLeaderboard();
-  window.location.reload();
-  endGame();
+  // window.location.reload();
+});
+
+// Ass event listener to skip button
+skipButton.addEventListener("click", function () {
+  skipTurn();
+  console.log(skipCount);
+  displayTotalScores();
+});
+
+// Add event listener to submit button
+submitButton.addEventListener("click", function () {
+  checkAnswer();
+  fullGridCheck();
+  displayTotalScores();
 });
 
 function enableButtons() {
@@ -62,6 +78,7 @@ function enableButtons() {
   rollD.disabled = false;
   clearButton.disabled = false;
   newGameButton.disabled = false;
+  skipButton.disabled = false;
   submitButton.disabled = false;
 }
 
@@ -70,26 +87,28 @@ function disableButtons() {
   rollD.disabled = true;
   clearButton.disabled = true;
   newGameButton.disabled = true;
+  skipButton.disabled = true;
   submitButton.disabled = true;
 }
 
 function clearMessages() {
   //Clear PLAY message
   startMessage.textContent = "";
-
   // Clear the error message
   errorMessage.textContent = "";
 }
 
-// declare results as global variable
+// declare global variables for timer
 let timeResults = [];
+let interval;
 
 // function sets minutes and seconds
 function startTimer(duration, display) {
+  stopTimer();
   let timer = duration,
     minutes,
     seconds;
-  let interval = setInterval(function () {
+  interval = setInterval(function () {
     minutes = parseInt(timer / 60, 10);
     seconds = parseInt(timer % 60, 10);
 
@@ -98,20 +117,21 @@ function startTimer(duration, display) {
 
     display.textContent = minutes + ":" + seconds;
     if (--timer < 0) {
-      clearInterval(interval);
-      display.textContent = "00:00 Time's up!";
+      endGame();
+      display.textContent = "Time's up!";
       timeResults.push("loss");
       timeUpWinsAndLosses(timeResults);
-      disableButtons();
+      displayTotalScores();
     }
   }, 1000);
 }
 
+// create a variable to hold the wins and losses
+let timeLosses = 0;
+let timeWins = 0;
+
 // function to capture time up wins and losses
 function timeUpWinsAndLosses(results) {
-  // create a variable to hold the losses
-  let timeLosses = 0;
-
   // loop through the results array
   for (let i = 0; i < results.length; i++) {
     if (results[i] === "win") {
@@ -122,17 +142,21 @@ function timeUpWinsAndLosses(results) {
   }
   // display results
   document.getElementById("time-up-loss").textContent = timeLosses;
+  document.getElementById("time-up-wins").textContent = timeWins;
 }
 
 // add the countdown time to the HTML page and start regressive time
 function startCount() {
-  let duration = 60; // transform seconds to minutes
+  let duration = 60 * 2; // transform seconds to minutes
   let display = document.querySelector("#countdown");
   startTimer(duration, display);
 }
 
+// function to stop the countdown and reset the timer
 function stopTimer() {
   clearInterval(interval);
+  let display = document.querySelector("#countdown");
+  display.textContent = "00:00";
 }
 
 // Gets a random integer, min & max inclusive
@@ -141,6 +165,7 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 // Roll dice function
 function rollThatDice() {
   audio.currentTime = 0;
@@ -226,21 +251,77 @@ function checkAnswer() {
   }
 }
 
-// this function clears ALL of the grid and stops the timer
-function endGame() {
-  // Remove classes from all the squares
-  squares.forEach((square) => {
-    square.classList.remove("occupied");
-    square.classList.remove("block");
+let fullWin = [];
+
+function fullGridCheck() {
+  //Check to see if grid is full
+  var numBlockedSquares = divArray.filter(function (elemento) {
+    return elemento.classList.contains("block");
   });
 
+  squares.forEach((square) => {
+    if (square.classList.contains("block") === numBlockedSquares.length) {
+      //Display win message
+      document.getElementById("error").textContent =
+        "Congratulations! You have won the game! Press the PLAY button to play again.";
+
+      // Tally the win count
+      fullWin.push("win");
+      fullGridWinsAndLosses(fullWin);
+      displayTotalScores();
+
+      // Reset game state
+      disableButtons();
+
+      // Clear dice results
+      displayDice.innerHTML = "";
+
+      // Reset all squares
+      squares.forEach((square) => {
+        square.classList.remove("occupied");
+        square.classList.remove("block");
+      });
+    }
+  });
+}
+
+//create variables for wins and losses
+let fullGridWins = 0;
+let fullGridLosses = 0;
+
+//Populate leaderboard with the results
+function fullGridWinsAndLosses(results) {
+  // loop through the results array
+  for (let i = 0; i < results.length; i++) {
+    if (results[i] === "win") {
+      fullGridWins++;
+    } else if (results[i] === "loss") {
+      fullGridLosses++;
+    }
+  }
+  document.getElementById("grid-full-wins").textContent = fullGridWins;
+  document.getElementById("grid-full-loss").textContent = fullGridLosses;
+}
+
+// this function clears ALL of the grid and stops the timer
+function endGame() {
   // Clear dice results
   displayDice.innerHTML = " ";
   // Display NEW GAME message
   startMessage.innerHTML = "Press PLAY to start a NEW GAME!";
-
-  // Stop the timer
+  // Stop timer
   stopTimer();
+  // Reset game state
+  disableButtons();
+  // Clear whole game grid
+  clearEverything();
+}
+
+function clearEverything() {
+  squares.forEach((square) => {
+    square.classList.remove("occupied");
+    square.classList.remove("block");
+  });
 }
 
 function clearGrid() {
@@ -251,12 +332,8 @@ function clearGrid() {
 
   // Clear the error message
   errorMessage.textContent = "";
+  startMessage.textContent = "";
 }
-
-// Attach the function to the button's click event
-clearButton.addEventListener("click", function () {
-  clearGrid();
-});
 
 function emptyLeaderboard() {
   // Reset the win and loss counts to zero
@@ -268,4 +345,62 @@ function emptyLeaderboard() {
   document.getElementById("grid-full-loss").textContent = "0";
   document.getElementById("two-losses-loss").textContent = "0";
   document.getElementById("total-loss").textContent = "0";
+}
+
+// skip turn counter
+let skipCount = 0;
+let skipArray = [];
+
+//skip button
+function skipTurn() {
+  //incriment the skip count
+  skipCount++;
+
+  // if the skip count is equal to the number of players, end the game
+  if (skipCount === 2) {
+    document.getElementById("error").textContent =
+      "You skipped your turn too many times! You have lost the game!";
+    skipArray.push("loss");
+    skipWinsAndLosses(skipArray);
+    stopTimer();
+    skipCount = 0;
+  } else {
+    // Clear error message
+    document.getElementById("error").textContent =
+      "You have skipped your turn. Next player, please!";
+    // reset dice results
+    displayDice.innerHTML = "";
+    //enable dice roll button
+    rollD.disabled = false;
+  }
+}
+
+// create a variable to hold the losses
+let skipLosses = 0;
+let skipWins = 0;
+
+// function to capture time up wins and losses
+function skipWinsAndLosses(results) {
+  //reset the variables
+  skipLosses = 0;
+  skipWins = 0;
+
+  // loop through the results array
+  for (let i = 0; i < results.length; i++) {
+    if (results[i] === "win") {
+      skipWins++;
+    } else if (results[i] === "loss") {
+      skipLosses++;
+    }
+  }
+  // display results
+  document.getElementById("two-losses-loss").textContent = skipLosses;
+  document.getElementById("two-losses-wins").textContent = skipWins;
+}
+
+function displayTotalScores() {
+  document.getElementById("total-wins").textContent =
+    timeWins + skipWins + fullGridWins;
+  document.getElementById("total-loss").textContent =
+    timeLosses + skipLosses + fullGridLosses;
 }
