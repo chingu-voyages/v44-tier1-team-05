@@ -133,7 +133,7 @@ submitButton.addEventListener("click", function () {
 // Add event listener to new game button
 newGameButton.addEventListener("click", function () {
   // Check if any squares are marked as occupied
-  const occupiedSquares = document.querySelectorAll(".occupied");
+  const occupiedSquares = document.querySelectorAll(".block");
   if (occupiedSquares.length > 0) {
     // Display modal alert
     if (confirm("Are you sure you want to start a new game? The current game will be abandoned.")) {
