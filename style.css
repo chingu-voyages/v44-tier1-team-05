@@ -460,3 +460,16 @@ button:hover {
   }
 }
 
+/* Styles for light mode */
+body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Styles for dark mode */
+body.dark-mode {
+  background-color: #474343;
+  color: #ffffff;
+}
+
+
