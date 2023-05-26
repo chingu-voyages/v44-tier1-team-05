@@ -60,7 +60,7 @@ function startTimer(duration, display) {
   let timer = duration,
     minutes,
     seconds;
-  setInterval(function () {
+  let intervalId = setInterval(function () {
     minutes = parseInt(timer / 60, 10);
     seconds = parseInt(timer % 60, 10);
 
@@ -68,8 +68,10 @@ function startTimer(duration, display) {
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
     display.textContent = minutes + ":" + seconds;
-    if (--timer < 10) {
-      timer = duration;
+    if (timer <= 0) {
+      clearInterval(intervalId); // Stop the timer when it reaches 0
+    } else {
+      timer--;
     }
   }, 1000);
 }
@@ -131,13 +133,30 @@ submitButton.addEventListener("click", function () {
 });
 
 // Add event listener to new game button
-
 newGameButton.addEventListener("click", function () {
-  clearGrid();
-  rollThatDice();
-  emptyLeaderboard();
-  window.location.reload();
+  // Check if any squares are marked as occupied
+  const occupiedSquares = document.querySelectorAll(".block");
+  if (occupiedSquares.length > 0) {
+    // Display modal alert
+    if (confirm("Are you sure you want to start a new game? The current game will be abandoned.")) {
+      // User confirmed, proceed with starting a new game
+      clearGrid();
+      rollThatDice();
+      emptyLeaderboard();
+      window.location.reload();
+    } else {
+      // User cancelled, do nothing
+      return;
+    }
+  } else {
+    // No occupied squares, start a new game directly
+    clearGrid();
+    rollThatDice();
+    emptyLeaderboard();
+    window.location.reload();
+  }
 });
+
 
 // Define the markSquare() function here
 function markSquare(square) {
