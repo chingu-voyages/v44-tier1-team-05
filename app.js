@@ -253,3 +253,9 @@ function emptyLeaderboard() {
   document.getElementById("two-losses-loss").textContent = "0";
   document.getElementById("total-loss").textContent = "0";
 }
+
+function toggleDarkMode() {
+  const body = document.querySelector('body');
+  body.classList.toggle('dark-mode');
+}
+
