@@ -248,16 +248,15 @@ function checkAnswer() {
   }
 }
 
-let fullWin = [];
-
 function fullGridCheck() {
+  let fullWin = [];
   //Check to see if grid is full
   var numBlockedSquares = divArray.filter(function (elemento) {
     return elemento.classList.contains("block");
   });
 
   squares.forEach((square) => {
-    if (square.classList.contains("block") === numBlockedSquares.length) {
+    if (numBlockedSquares.length === 100) {
       //Display win message
       document.getElementById("error").textContent =
         "Congratulations! You have won the game! Press the PLAY button to play again.";
@@ -282,12 +281,11 @@ function fullGridCheck() {
   });
 }
 
-//create variables for wins and losses
-let fullGridWins = 0;
-let fullGridLosses = 0;
-
 //Populate leaderboard with the results
 function fullGridWinsAndLosses(results) {
+  //create variables for wins and losses
+  let fullGridWins = 0;
+  let fullGridLosses = 0;
   // loop through the results array
   for (let i = 0; i < results.length; i++) {
     if (results[i] === "win") {
@@ -396,8 +394,8 @@ function skipWinsAndLosses(results) {
 }
 
 function displayTotalScores() {
-  document.getElementById("total-wins").textContent =
-    timeWins + skipWins + fullGridWins;
-  document.getElementById("total-loss").textContent =
-    timeLosses + skipLosses + fullGridLosses;
+  let totalW = timeWins + skipWins + fullGridWins;
+  let totalL = timeLosses + skipLosses + fullGridLosses;
+  document.getElementById("total-wins").textContent = totalW;
+  document.getElementById("total-loss").textContent = totalL;
 }
