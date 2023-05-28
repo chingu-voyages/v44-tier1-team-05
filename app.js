@@ -22,6 +22,9 @@ let squares = document.querySelectorAll(".box");
 let startMessage = document.getElementById("start");
 let errorMessage = document.getElementById("error");
 let divArray = Array.from(squares);
+//create variables for wins and losses
+let fullGridWins = 0;
+let fullGridLosses = null;
 
 //Start game with buttons disabled.
 disableButtons();
@@ -249,21 +252,19 @@ function checkAnswer() {
 }
 
 function fullGridCheck() {
-  let fullWin = [];
   //Check to see if grid is full
   var numBlockedSquares = divArray.filter(function (elemento) {
     return elemento.classList.contains("block");
   });
 
   squares.forEach((square) => {
-    if (numBlockedSquares.length === 100) {
+    if (numBlockedSquares.length > 10) {
       //Display win message
       document.getElementById("error").textContent =
         "Congratulations! You have won the game! Press the PLAY button to play again.";
 
       // Tally the win count
-      fullWin.push("win");
-      fullGridWinsAndLosses(fullWin);
+      fullGridWinsAndLosses(numBlockedSquares);
       displayTotalScores();
 
       // Reset game state
@@ -283,19 +284,10 @@ function fullGridCheck() {
 
 //Populate leaderboard with the results
 function fullGridWinsAndLosses(results) {
-  //create variables for wins and losses
-  let fullGridWins = 0;
-  let fullGridLosses = 0;
-  // loop through the results array
-  for (let i = 0; i < results.length; i++) {
-    if (results[i] === "win") {
-      fullGridWins++;
-    } else if (results[i] === "loss") {
-      fullGridLosses++;
-    }
+  if (results.some((elemento) => elemento.classList.contains("block"))) {
+    fullGridWins++;
   }
   document.getElementById("grid-full-wins").textContent = fullGridWins;
-  document.getElementById("grid-full-loss").textContent = fullGridLosses;
 }
 
 // this function clears ALL of the grid and stops the timer
