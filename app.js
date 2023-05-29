@@ -13,14 +13,19 @@ let playButton = document.getElementById("play-btn");
 let clearButton = document.getElementById("clear-btn");
 let newGameButton = document.getElementById("newGame-btn");
 let submitButton = document.getElementById("submit-btn");
+let skipButton = document.getElementById("skip-btn");
 let imageDiceOne = document.getElementById("dice01");
 let imageDiceTwo = document.getElementById("dice02");
 let displayDice = document.querySelector(".diceResult");
 let audio = document.getElementById("audio");
-let divElements = document.querySelectorAll(".box");
-let divArray = Array.from(divElements);
-let previousRow = null;
-let previousCol = null;
+let squares = document.querySelectorAll(".box");
+let startMessage = document.getElementById("start");
+let errorMessage = document.getElementById("error");
+let divArray = Array.from(squares);
+//create variables for wins and losses
+let fullGridWins = 0;
+let fullGridLosses = null;
+
 
 //Start game with buttons disabled.
 disableButtons();
@@ -29,6 +34,44 @@ disableButtons();
 playButton.addEventListener("click", function () {
   // Enable the four buttons
   enableButtons();
+  //End previous Timer
+  stopTimer();
+  //Begin Timer
+  startCount();
+  //Clear the messages
+  clearMessages();
+});
+
+// add event listener to rollDice button
+rollD.addEventListener("click", function (event) {
+  rollThatDice();
+});
+
+// Attach the function to the button's click event
+clearButton.addEventListener("click", function () {
+  clearGrid();
+  errorMessage.textContent = "Grid cleared!";
+});
+
+// Add event listener to new game button
+newGameButton.addEventListener("click", function () {
+  clearEverything();
+  emptyLeaderboard();
+  window.location.reload();
+});
+
+// Ass event listener to skip button
+skipButton.addEventListener("click", function () {
+  skipTurn();
+  console.log(skipCount);
+  displayTotalScores();
+});
+
+// Add event listener to submit button
+submitButton.addEventListener("click", function () {
+  checkAnswer();
+  fullGridCheck();
+  displayTotalScores();
 });
 
 function enableButtons() {
@@ -36,15 +79,8 @@ function enableButtons() {
   rollD.disabled = false;
   clearButton.disabled = false;
   newGameButton.disabled = false;
+  skipButton.disabled = false;
   submitButton.disabled = false;
-
-  //Clear PLAY message
-  const clearStart = document.getElementById("start");
-  clearStart.textContent = "";
-
-  // Clear the error message
-  const errorMessage = document.getElementById("error");
-  errorMessage.textContent = "";
 }
 
 function disableButtons() {
@@ -52,15 +88,29 @@ function disableButtons() {
   rollD.disabled = true;
   clearButton.disabled = true;
   newGameButton.disabled = true;
+  skipButton.disabled = true;
   submitButton.disabled = true;
 }
 
+function clearMessages() {
+  //Clear PLAY message
+  startMessage.textContent = "";
+  // Clear the error message
+  errorMessage.textContent = "";
+}
+
+// declare global variables for timer
+let timeResults = [];
+let interval;
+
 // function sets minutes and seconds
 function startTimer(duration, display) {
+  stopTimer();
   let timer = duration,
     minutes,
     seconds;
-  let intervalId = setInterval(function () {
+
+  interval = setInterval(function () {
     minutes = parseInt(timer / 60, 10);
     seconds = parseInt(timer % 60, 10);
 
@@ -68,18 +118,48 @@ function startTimer(duration, display) {
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
     display.textContent = minutes + ":" + seconds;
-    if (timer <= 0) {
-      clearInterval(intervalId); // Stop the timer when it reaches 0
-    } else {
-      timer--;
+
+    if (--timer < 0) {
+      endGame();
+      display.textContent = "Time's up!";
+      timeResults.push("loss");
+      timeUpWinsAndLosses(timeResults);
+      displayTotalScores();
     }
   }, 1000);
 }
+
+// create a variable to hold the wins and losses
+let timeLosses = 0;
+let timeWins = 0;
+
+// function to capture time up wins and losses
+function timeUpWinsAndLosses(results) {
+  // loop through the results array
+  for (let i = 0; i < results.length; i++) {
+    if (results[i] === "win") {
+      timeWins++;
+    } else if (results[i] === "loss") {
+      timeLosses++;
+    }
+  }
+  // display results
+  document.getElementById("time-up-loss").textContent = timeLosses;
+  document.getElementById("time-up-wins").textContent = timeWins;
+}
+
 // add the countdown time to the HTML page and start regressive time
 function startCount() {
   let duration = 60 * 2; // transform seconds to minutes
   let display = document.querySelector("#countdown");
   startTimer(duration, display);
+}
+
+// function to stop the countdown and reset the timer
+function stopTimer() {
+  clearInterval(interval);
+  let display = document.querySelector("#countdown");
+  display.textContent = "00:00";
 }
 
 // Gets a random integer, min & max inclusive
@@ -88,6 +168,7 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 // Roll dice function
 function rollThatDice() {
   audio.currentTime = 0;
@@ -157,7 +238,6 @@ newGameButton.addEventListener("click", function () {
   }
 });
 
-
 // Define the markSquare() function here
 function markSquare(square) {
   document.getElementById("error").textContent = "";
@@ -194,11 +274,14 @@ function checkAnswer() {
   var filterWord = divArray.filter(function (elemento) {
     return elemento.classList.contains("occupied");
   });
-  console.log(dice1 * dice2, filterWord.length);
+
   if (filterWord.length !== dice1 * dice2) {
     // Display error message
     document.getElementById("error").textContent =
       "The number of marked squares doesn't match the numbers on the dice. Please mark the grid to match the dice.";
+
+    // Don't let dice roll happen until correct answer is given
+    rollD.disabled = true;
 
     // Clear all occupied squares
     let squares = document.querySelectorAll(".occupied");
@@ -209,10 +292,9 @@ function checkAnswer() {
     // Clear error message
     document.getElementById("error").textContent = "Good Job!";
     // Enable roll dice button
-    rollD.disabled = false;
+    enableButtons();
 
     // Enable all disabled squares
-    squares = document.querySelectorAll(".box");
     squares.forEach((square) => {
       if (square.classList.contains("occupied")) {
         square.classList.remove("occupied");
@@ -225,22 +307,76 @@ function checkAnswer() {
   }
 }
 
-function clearGrid() {
-  // Get all the grid squares
-  const squares = document.querySelectorAll(".box");
+function fullGridCheck() {
+  //Check to see if grid is full
+  var numBlockedSquares = divArray.filter(function (elemento) {
+    return elemento.classList.contains("block");
+  });
 
+  squares.forEach((square) => {
+    if (numBlockedSquares.length > 10) {
+      //Display win message
+      document.getElementById("error").textContent =
+        "Congratulations! You have won the game! Press the PLAY button to play again.";
+
+      // Tally the win count
+      fullGridWinsAndLosses(numBlockedSquares);
+      displayTotalScores();
+
+      // Reset game state
+      disableButtons();
+
+      // Clear dice results
+      displayDice.innerHTML = "";
+
+      // Reset all squares
+      squares.forEach((square) => {
+        square.classList.remove("occupied");
+        square.classList.remove("block");
+      });
+    }
+  });
+}
+
+//Populate leaderboard with the results
+function fullGridWinsAndLosses(results) {
+  if (results.some((elemento) => elemento.classList.contains("block"))) {
+    fullGridWins++;
+  }
+  document.getElementById("grid-full-wins").textContent = fullGridWins;
+}
+
+// this function clears ALL of the grid and stops the timer
+function endGame() {
+  // Clear dice results
+  displayDice.innerHTML = " ";
+  // Display NEW GAME message
+  startMessage.innerHTML = "Press PLAY to start a NEW GAME!";
+  // Stop timer
+  stopTimer();
+  // Reset game state
+  disableButtons();
+  // Clear whole game grid
+  clearEverything();
+}
+
+function clearEverything() {
+  squares.forEach((square) => {
+    square.classList.remove("occupied");
+    square.classList.remove("block");
+  });
+}
+
+function clearGrid() {
   // Remove the "occupied" class from all the squares
   squares.forEach((square) => {
     square.classList.remove("occupied");
   });
 
   // Clear the error message
-  const errorMessage = document.getElementById("error");
   errorMessage.textContent = "";
+  startMessage.textContent = "";
 }
-
-// Attach the function to the button's click event
-clearButton.addEventListener("click", clearGrid);
 
 function emptyLeaderboard() {
   // Reset the win and loss counts to zero
@@ -254,8 +390,66 @@ function emptyLeaderboard() {
   document.getElementById("total-loss").textContent = "0";
 }
 
+
+// skip turn counter
+let skipCount = 0;
+let skipArray = [];
+
+//skip button
+function skipTurn() {
+  //incriment the skip count
+  skipCount++;
+
+  // if the skip count is equal to the number of players, end the game
+  if (skipCount === 2) {
+    document.getElementById("error").textContent =
+      "You skipped your turn too many times! You have lost the game!";
+    skipArray.push("loss");
+    skipWinsAndLosses(skipArray);
+    stopTimer();
+    skipCount = 0;
+  } else {
+    // Clear error message
+    document.getElementById("error").textContent =
+      "You have skipped your turn. Next player, please!";
+    // reset dice results
+    displayDice.innerHTML = "";
+    //enable dice roll button
+    rollD.disabled = false;
+  }
+}
+
+// create a variable to hold the losses
+let skipLosses = 0;
+let skipWins = 0;
+
+// function to capture time up wins and losses
+function skipWinsAndLosses(results) {
+  //reset the variables
+  skipLosses = 0;
+  skipWins = 0;
+
+  // loop through the results array
+  for (let i = 0; i < results.length; i++) {
+    if (results[i] === "win") {
+      skipWins++;
+    } else if (results[i] === "loss") {
+      skipLosses++;
+    }
+  }
+  // display results
+  document.getElementById("two-losses-loss").textContent = skipLosses;
+  document.getElementById("two-losses-wins").textContent = skipWins;
+}
+
+function displayTotalScores() {
+  let totalW = timeWins + skipWins + fullGridWins;
+  let totalL = timeLosses + skipLosses + fullGridLosses;
+  document.getElementById("total-wins").textContent = totalW;
+  document.getElementById("total-loss").textContent = totalL;
+}
+
 function toggleDarkMode() {
   const body = document.querySelector('body');
   body.classList.toggle('dark-mode');
 }
-
