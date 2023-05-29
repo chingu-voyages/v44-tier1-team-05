@@ -3,7 +3,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Requirements & Specifications](#requirements-&-specifications)
+- [Requirements & Specifications](#requirements-specifications)
 - [About Chingu](#about-chingu)
 - [Authors](#authors)
 - [Acknowledgements](#acknowledgements)
