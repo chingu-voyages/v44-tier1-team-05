@@ -26,7 +26,6 @@ let divArray = Array.from(squares);
 let fullGridWins = 0;
 let fullGridLosses = null;
 
-
 //Start game with buttons disabled.
 disableButtons();
 
@@ -51,13 +50,6 @@ rollD.addEventListener("click", function (event) {
 clearButton.addEventListener("click", function () {
   clearGrid();
   errorMessage.textContent = "Grid cleared!";
-});
-
-// Add event listener to new game button
-newGameButton.addEventListener("click", function () {
-  clearEverything();
-  emptyLeaderboard();
-  window.location.reload();
 });
 
 // Ass event listener to skip button
@@ -206,20 +198,18 @@ rollD.addEventListener("click", function (event) {
   rollThatDice();
 });
 
-// Add event listener to submit button
-
-submitButton.addEventListener("click", function () {
-  checkAnswer();
-  // disableButtons();
-});
-
 // Add event listener to new game button
 newGameButton.addEventListener("click", function () {
   // Check if any squares are marked as occupied
   const occupiedSquares = document.querySelectorAll(".block");
+  console.log(occupiedSquares);
   if (occupiedSquares.length > 0) {
     // Display modal alert
-    if (confirm("Are you sure you want to start a new game? The current game will be abandoned.")) {
+    if (
+      confirm(
+        "Are you sure you want to start a new game? The current game will be abandoned."
+      )
+    ) {
       // User confirmed, proceed with starting a new game
       clearGrid();
       rollThatDice();
@@ -241,26 +231,10 @@ newGameButton.addEventListener("click", function () {
 // Define the markSquare() function here
 function markSquare(square) {
   document.getElementById("error").textContent = "";
-  const currentIndex = divArray.indexOf(square);
-  const currentRow = Math.floor(currentIndex / 10);
-  const currentCol = currentIndex % 10;
-  let lessRow = currentRow - previousRow;
-  let lessCol = currentCol - previousCol;
-
   if (square.classList.contains("occupied")) {
     square.classList.remove("occupied");
   } else {
-    if (lessRow === 1 && (lessCol === 1 || lessCol === -1)) {
-      square.classList.remove("occupied");
-      document.getElementById("error").textContent = "Diagonal Not Allowed";
-    } else if (lessRow === -1 && (lessCol === 1 || lessCol === -1)) {
-      square.classList.remove("occupied");
-      document.getElementById("error").textContent = "Diagonal Not Allowed";
-    } else {
-      square.classList.toggle("occupied");
-    }
-    previousRow = currentRow;
-    previousCol = currentCol;
+    square.classList.add("occupied");
   }
 }
 
@@ -271,10 +245,10 @@ function checkAnswer() {
   let dice2 = parseInt(
     document.getElementById("dice02").getAttribute("data-value")
   );
-  var filterWord = divArray.filter(function (elemento) {
+  let filterWord = divArray.filter(function (elemento) {
     return elemento.classList.contains("occupied");
   });
-
+  console.log(filterWord);
   if (filterWord.length !== dice1 * dice2) {
     // Display error message
     document.getElementById("error").textContent =
@@ -319,6 +293,8 @@ function fullGridCheck() {
       document.getElementById("error").textContent =
         "Congratulations! You have won the game! Press the PLAY button to play again.";
 
+      //stop time
+      stopTimer();
       // Tally the win count
       fullGridWinsAndLosses(numBlockedSquares);
       displayTotalScores();
@@ -390,7 +366,6 @@ function emptyLeaderboard() {
   document.getElementById("total-loss").textContent = "0";
 }
 
-
 // skip turn counter
 let skipCount = 0;
 let skipArray = [];
@@ -450,6 +425,6 @@ function displayTotalScores() {
 }
 
 function toggleDarkMode() {
-  const body = document.querySelector('body');
-  body.classList.toggle('dark-mode');
+  const body = document.querySelector("body");
+  body.classList.toggle("dark-mode");
 }
