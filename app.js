@@ -26,6 +26,7 @@ let divArray = Array.from(squares);
 let fullGridWins = 0;
 let fullGridLosses = null;
 
+
 //Start game with buttons disabled.
 disableButtons();
 
@@ -108,6 +109,7 @@ function startTimer(duration, display) {
   let timer = duration,
     minutes,
     seconds;
+
   interval = setInterval(function () {
     minutes = parseInt(timer / 60, 10);
     seconds = parseInt(timer % 60, 10);
@@ -116,6 +118,7 @@ function startTimer(duration, display) {
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
     display.textContent = minutes + ":" + seconds;
+
     if (--timer < 0) {
       endGame();
       display.textContent = "Time's up!";
@@ -199,12 +202,65 @@ function rollThatDice() {
   rollD.disabled = true;
 }
 
+rollD.addEventListener("click", function (event) {
+  rollThatDice();
+});
+
+// Add event listener to submit button
+
+submitButton.addEventListener("click", function () {
+  checkAnswer();
+  // disableButtons();
+});
+
+// Add event listener to new game button
+newGameButton.addEventListener("click", function () {
+  // Check if any squares are marked as occupied
+  const occupiedSquares = document.querySelectorAll(".block");
+  if (occupiedSquares.length > 0) {
+    // Display modal alert
+    if (confirm("Are you sure you want to start a new game? The current game will be abandoned.")) {
+      // User confirmed, proceed with starting a new game
+      clearGrid();
+      rollThatDice();
+      emptyLeaderboard();
+      window.location.reload();
+    } else {
+      // User cancelled, do nothing
+      return;
+    }
+  } else {
+    // No occupied squares, start a new game directly
+    clearGrid();
+    rollThatDice();
+    emptyLeaderboard();
+    window.location.reload();
+  }
+});
+
 // Define the markSquare() function here
 function markSquare(square) {
+  document.getElementById("error").textContent = "";
+  const currentIndex = divArray.indexOf(square);
+  const currentRow = Math.floor(currentIndex / 10);
+  const currentCol = currentIndex % 10;
+  let lessRow = currentRow - previousRow;
+  let lessCol = currentCol - previousCol;
+
   if (square.classList.contains("occupied")) {
     square.classList.remove("occupied");
   } else {
-    square.classList.toggle("occupied");
+    if (lessRow === 1 && (lessCol === 1 || lessCol === -1)) {
+      square.classList.remove("occupied");
+      document.getElementById("error").textContent = "Diagonal Not Allowed";
+    } else if (lessRow === -1 && (lessCol === 1 || lessCol === -1)) {
+      square.classList.remove("occupied");
+      document.getElementById("error").textContent = "Diagonal Not Allowed";
+    } else {
+      square.classList.toggle("occupied");
+    }
+    previousRow = currentRow;
+    previousCol = currentCol;
   }
 }
 
@@ -334,6 +390,7 @@ function emptyLeaderboard() {
   document.getElementById("total-loss").textContent = "0";
 }
 
+
 // skip turn counter
 let skipCount = 0;
 let skipArray = [];
@@ -390,4 +447,9 @@ function displayTotalScores() {
   let totalL = timeLosses + skipLosses + fullGridLosses;
   document.getElementById("total-wins").textContent = totalW;
   document.getElementById("total-loss").textContent = totalL;
+}
+
+function toggleDarkMode() {
+  const body = document.querySelector('body');
+  body.classList.toggle('dark-mode');
 }
