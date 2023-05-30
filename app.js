@@ -377,13 +377,16 @@ function skipTurn() {
 
   // if the skip count is equal to the number of players, end the game
   if (skipCount === 2) {
-    document.getElementById("error").textContent =
-      "You skipped your turn too many times! You have lost the game!";
     skipArray.push("loss");
     skipWinsAndLosses(skipArray);
     stopTimer();
     skipCount = 0;
+    clearEverything();
+    document.getElementById("error").textContent =
+      "You skipped your turn too many times! You have lost the game!";
   } else {
+    //Clear grid for next player
+    clearGrid();
     // Clear error message
     document.getElementById("error").textContent =
       "You have skipped your turn. Next player, please!";
