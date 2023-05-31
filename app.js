@@ -83,6 +83,38 @@ function disableButtons() {
   skipButton.disabled = true;
   submitButton.disabled = true;
 }
+// Add event listeners for dragging
+divArray.forEach((square) => {
+  square.addEventListener("mousedown", startDrag);
+  square.addEventListener("mouseover", drag);
+  square.addEventListener("mouseup", endDrag);
+});
+
+// Variables to track dragging state
+let isDragging = false;
+let startSquare = null;
+let endSquare = null;
+
+// Function to handle start of dragging
+function startDrag(event) {
+  isDragging = true;
+  startSquare = event.target;
+  endSquare = event.target;
+  markSquare(startSquare);
+}
+
+// Function to handle dragging over squares
+function drag(event) {
+  if (isDragging) {
+    endSquare = event.target;
+    markSquare(endSquare);
+  }
+}
+
+// Function to handle end of dragging
+function endDrag() {
+  isDragging = false;
+}
 
 function clearMessages() {
   //Clear PLAY message
