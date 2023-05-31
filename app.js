@@ -127,17 +127,15 @@ let timeWins = 0;
 
 // function to capture time up wins and losses
 function timeUpWinsAndLosses(results) {
+  timeLosses = 0;
   // loop through the results array
   for (let i = 0; i < results.length; i++) {
-    if (results[i] === "win") {
-      timeWins++;
-    } else if (results[i] === "loss") {
-      timeLosses++;
+    if (results[i] === "loss") {
+      timeLosses = timeLosses + 1;
     }
   }
   // display results
   document.getElementById("time-up-loss").textContent = timeLosses;
-  document.getElementById("time-up-wins").textContent = timeWins;
 }
 
 // add the countdown time to the HTML page and start regressive time
@@ -356,14 +354,11 @@ function clearGrid() {
 
 function emptyLeaderboard() {
   // Reset the win and loss counts to zero
-  document.getElementById("time-up-wins").textContent = "0";
+
   document.getElementById("grid-full-wins").textContent = "0";
-  document.getElementById("two-losses-wins").textContent = "0";
   document.getElementById("total-wins").textContent = "0";
   document.getElementById("time-up-loss").textContent = "0";
-  document.getElementById("grid-full-loss").textContent = "0";
   document.getElementById("two-losses-loss").textContent = "0";
-  document.getElementById("total-loss").textContent = "0";
 }
 
 // skip turn counter
@@ -377,13 +372,16 @@ function skipTurn() {
 
   // if the skip count is equal to the number of players, end the game
   if (skipCount === 2) {
-    document.getElementById("error").textContent =
-      "You skipped your turn too many times! You have lost the game!";
     skipArray.push("loss");
     skipWinsAndLosses(skipArray);
     stopTimer();
     skipCount = 0;
+    clearEverything();
+    document.getElementById("error").textContent =
+      "You skipped your turn too many times! You have lost the game!";
   } else {
+    //Clear grid for next player
+    clearGrid();
     // Clear error message
     document.getElementById("error").textContent =
       "You have skipped your turn. Next player, please!";
@@ -406,22 +404,18 @@ function skipWinsAndLosses(results) {
 
   // loop through the results array
   for (let i = 0; i < results.length; i++) {
-    if (results[i] === "win") {
-      skipWins++;
-    } else if (results[i] === "loss") {
+    if (results[i] === "loss") {
       skipLosses++;
     }
   }
   // display results
   document.getElementById("two-losses-loss").textContent = skipLosses;
-  document.getElementById("two-losses-wins").textContent = skipWins;
 }
 
 function displayTotalScores() {
-  let totalW = timeWins + skipWins + fullGridWins;
-  let totalL = timeLosses + skipLosses + fullGridLosses;
+  let totalW = fullGridWins - timeLosses - skipLosses;
+
   document.getElementById("total-wins").textContent = totalW;
-  document.getElementById("total-loss").textContent = totalL;
 }
 
 function toggleDarkMode() {
