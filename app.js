@@ -318,7 +318,7 @@ function fullGridCheck() {
   });
 
   squares.forEach((square) => {
-    if (numBlockedSquares.length > 10) {
+    if (numBlockedSquares.length >= 100) {
       //Display win message
       document.getElementById("error").textContent =
         "Congratulations! You have won the game! Press the PLAY button to play again.";
