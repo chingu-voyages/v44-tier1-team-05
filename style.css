@@ -87,11 +87,21 @@ textarea {
      Author's custom styles
      ========================================================================== */
 
+
+body {
+  background-image: url("/docs/images/graph_paper.jpeg");
+  background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(calc(100% /3), 1fr));
+  grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+}
+
 .game-board {
   display: grid;
   grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
   grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
   justify-content: center;
+  position: relative;
 }
 
 .box {
@@ -134,17 +144,55 @@ img {
 button {
   margin: 1vh;
   font-size: 2vh;
+  font-family: 'Dokdo';
   color: #fff;
   background-color: rgb(250, 112, 112);
   height: auto;
   border: none;
   padding: 1vh 2vh;
-  border-radius: 50px;
+  border-radius: 3px;
   cursor: pointer;
-  transition: all 1s;
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+
+  box-shadow: rgba(7, 24, 53, 0.25) 0px 4px 8px -2px,
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
+
+#rollDice {
+  background-color: #DB3A34;
+  color: #FFC857;
+}
+
+#clear-btn {
+  background-color: #177E89;
+  color: #FFC857;
+}
+
+#newGame-btn {
+  background-color: #094B61;
+  color: #FFC857;
+}
+
+#skip-btn {
+  background-color: #177E89;
+  color: #FFC857;
+}
+
+#submit-btn {
+  background-color: #177E89;
+  color: #FFC857;
+}
+
+#dark-light-btn {
+  background-color: #094B61;
+  color: #FFC857;
+  border-radius: 50px;
+}
+
+#option-btn {
+  background-color: #094B61;
+  color: #FFC857;
+}
+
 
 button:hover {
   background-color: #f70f0f;
@@ -282,6 +330,13 @@ button:hover {
 /* Style for even rows */
 #leaderboard-table tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: repeat(autofill, 1fr);
+  grid-template-rows: repeat(autofill, 1fr);
+  /* visibility: hidden; */
 }
 
 
@@ -471,5 +526,3 @@ body.dark-mode {
   background-color: #474343;
   color: #ffffff;
 }
-
-

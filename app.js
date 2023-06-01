@@ -14,6 +14,7 @@ let clearButton = document.getElementById("clear-btn");
 let newGameButton = document.getElementById("newGame-btn");
 let submitButton = document.getElementById("submit-btn");
 let skipButton = document.getElementById("skip-btn");
+let darkLightButton = document.getElementById("dark-light-btn");
 let imageDiceOne = document.getElementById("dice01");
 let imageDiceTwo = document.getElementById("dice02");
 let displayDice = document.querySelector(".diceResult");
@@ -450,7 +451,7 @@ function displayTotalScores() {
   document.getElementById("total-wins").textContent = totalW;
 }
 
-function toggleDarkMode() {
+darkLightButton.addEventListener("click", function () {
   const body = document.querySelector("body");
   body.classList.toggle("dark-mode");
-}
+});
