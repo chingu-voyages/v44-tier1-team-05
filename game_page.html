@@ -41,11 +41,7 @@
     <header>
       <h1>The Array Game</h1>
       <!-- toggle Dark/Light modes-->
-      <button id="dark-light-btn">Dark/Light Mode</button>
     </header>
-    <div class="game_countdown hidden">
-      <div><p id="countdown"></p></div>
-    </div>
     <main>
       <div class="game-container">
         <div class="game-leaderboard">
@@ -77,8 +73,11 @@
             <!-- A link to the roll sound you hear-->
             <audio id="audio" src="https://bit.ly/dice-sound"></audio>
           </div>
+          <div class="message-container">
+            <p id="error"></p>
+            <p id="start">Press PLAY to begin!</p>
+          </div>
         </div>
-
         <div class="game-board">
           <div class="box" onclick="markSquare(this)"></div>
           <div class="box" onclick="markSquare(this)"></div>
@@ -182,11 +181,11 @@
           <div class="box" onclick="markSquare(this)"></div>
         </div>
       </div>
-      <div class="message-container">
-        <p id="error"></p>
-        <p id="start">Press PLAY to begin!</p>
-      </div>
+
       <div class="gameControl_btn">
+        <div class="game_countdown">
+          <div><p id="countdown"></p></div>
+        </div>
         <!--Start Play-->
         <button id="play-btn">Play</button>
         <div class="gameControl_box">
@@ -195,7 +194,6 @@
           <!-- skips player turn -->
           <button id="skip-btn">Skip Turn</button>
         </div>
-
         <!-- allow user to clear the grid and to start refilling it using the values from the current roll. This allows the user to try different options.-->
         <button id="clear-btn">Clear Grid</button>
         <!-- allow user to submit their answer-->
@@ -204,6 +202,7 @@
         <button id="newGame-btn">New Game</button>
         <!-- open Options menu -->
         <button id="option-btn">Options</button>
+        <button id="dark-light-btn">Dark/Light Mode</button>
       </div>
     </main>
     <footer>

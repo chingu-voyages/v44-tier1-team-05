@@ -33,7 +33,6 @@ disableButtons();
 // Add an event listener to the initial button
 playButton.addEventListener("click", function () {
   document.querySelector(".message-container").classList.add("hidden");
-  document.querySelector(".game_countdown").classList.remove("hidden");
   // Enable the four buttons
   enableButtons();
   //End previous Timer
