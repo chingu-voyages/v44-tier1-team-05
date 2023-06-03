@@ -28,203 +28,217 @@
       rel="stylesheet"
     />
     <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dokdo&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Array Game</title>
   </head>
   <body>
     <header>
       <h1>The Array Game</h1>
+      <!-- toggle Dark/Light modes-->
+      <button id="dark-light-btn">Dark/Light Mode</button>
     </header>
+    <div class="game_countdown hidden">
+      <div><p id="countdown"></p></div>
+    </div>
     <main>
-      <div class="gameControl">
-        <div class="gameControl_btn">
-          <!--Start Play-->
-          <button id="play-btn">Play</button>
-          <!-- button clicked and it executes rollThatDice()-->
-          <button id="rollDice">Roll Dice</button>
-          <!-- allow user to clear the grid and to start refilling it using the values from the current roll. This allows the user to try different options.-->
-          <button id="clear-btn">Clear Grid</button>
-          <!--New Game and should execute a modal-->
-          <button id="newGame-btn">New Game</button>
-          <!-- skips player turn -->
-          <button id="skip-btn">Skip Turn</button>
-          <!-- allow user to submit their answer-->
-          <button id="submit-btn">Submit Answer</button>
-          <!-- toggle Dark/Light modes-->
-          <button id="dark-light-btn">Dark/Light Mode</button>
-          <!-- open Options menu -->
-          <button id="option-btn">Options</button>
+      <div class="game-container">
+        <div class="game-leaderboard">
+          <table id="leaderboard-table">
+            <!--Leaderboard-->
+            <tr>
+              <!--The three ways the game can end-->
+              <th></th>
+              <th>Total</th>
+              <th id="grid-full-cell">Grid is full</th>
+              <th id="time-up-cell">Time is up</th>
+              <th id="two-losses-cell">Two losses</th>
+            </tr>
+            <tr>
+              <!--User can see the display of the total number of wins and losses for each-->
+              <!--User can see the tally of wins for each of the three ways the game can end-->
+              <td id="player-stat">Player</td>
+              <td id="total-wins">0</td>
+              <td id="grid-full-wins">0</td>
+              <td id="time-up-loss">0</td>
+              <td id="two-losses-loss">0</td>
+            </tr>
+          </table>
+          <div class="gameControl_dice">
+            <div class="dice-control"></div>
+            <img id="dice01" src="https://bit.ly/dice-unknown" />
+            <img id="dice02" src="https://bit.ly/dice-unknown" />
+            <p class="diceResult"></p>
+            <!-- A link to the roll sound you hear-->
+            <audio id="audio" src="https://bit.ly/dice-sound"></audio>
+          </div>
+        </div>
+
+        <div class="game-board">
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
+          <div class="box" onclick="markSquare(this)"></div>
         </div>
       </div>
-      <div class="gameControl_dice">
-        <img id="dice01" src="https://bit.ly/dice-unknown" />
-        <img id="dice02" src="https://bit.ly/dice-unknown" />
-        <p class="diceResult"></p>
-        <!-- A link to the roll sound you hear-->
-        <audio id="audio" src="https://bit.ly/dice-sound"></audio>
-      </div>
-      <div class="game_countdown">
-        <div><p id="countdown"></p></div>
-      </div>
-
       <div class="message-container">
         <p id="error"></p>
         <p id="start">Press PLAY to begin!</p>
       </div>
-      <h2>Leaderboard</h2>
-      <table id="leaderboard-table">
-        <!--Leaderboard-->
-        <tr>
-          <!--The three ways the game can end-->
-          <th>Stats</th>
-          <th>Total</th>
-          <th id="grid-full-cell">Grid is full</th>
-          <th id="time-up-cell">Time is up</th>
-          <th id="two-losses-cell">Two losses</th>
-        </tr>
-        <tr>
-          <!--User can see the display of the total number of wins and losses for each-->
-          <!--User can see the tally of wins for each of the three ways the game can end-->
-          <td>Player 01</td>
-          <td id="total-wins">0</td>
-          <td id="grid-full-wins">0</td>
-          <td id="time-up-loss">0</td>
-          <td id="two-losses-loss">0</td>
-        </tr>
-      </table>
-      <h3>Round: 1</h3>
+      <div class="gameControl_btn">
+        <!--Start Play-->
+        <button id="play-btn">Play</button>
+        <div class="gameControl_box">
+          <!-- button clicked and it executes rollThatDice()-->
+          <button id="rollDice">Roll Dice</button>
+          <!-- skips player turn -->
+          <button id="skip-btn">Skip Turn</button>
+        </div>
 
-      <div class="game-board">
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
-        <div class="box" onclick="markSquare(this)"></div>
+        <!-- allow user to clear the grid and to start refilling it using the values from the current roll. This allows the user to try different options.-->
+        <button id="clear-btn">Clear Grid</button>
+        <!-- allow user to submit their answer-->
+        <button id="submit-btn">Submit Answer</button>
+        <!--New Game and should execute a modal-->
+        <button id="newGame-btn">New Game</button>
+        <!-- open Options menu -->
+        <button id="option-btn">Options</button>
       </div>
     </main>
     <footer>
-      <span>&lt;/&gt; with </span>❤️<span> by </span>
-      <span>
-        <a href="https://github.com/goodman2814" target="_blank">Alex</a>,
-        <a href="https://github.com/nazgul7d" target="_blank">Nazgul</a>,
-        <a href="https://github.com/PaulaR-05" target="_blank"> Gabriela</a>,
-        <a href="https://github.com/MoriahSWalker" target="_blank">Moriah</a>,
-        <a href="https://github.com/Foughty" target="_blank"> John</a>
-      </span>
+      <div class="footer_info">
+        <span>&lt;/&gt; with </span>❤️<span> by </span>
+        <span>
+          <a href="https://github.com/goodman2814" target="_blank">Alex</a>,
+          <a href="https://github.com/nazgul7d" target="_blank">Nazgul</a>,
+          <a href="https://github.com/PaulaR-05" target="_blank"> Gabriela</a>,
+          <a href="https://github.com/MoriahSWalker" target="_blank">Moriah</a>,
+          <a href="https://github.com/Foughty" target="_blank"> John</a>
+        </span>
+      </div>
       <hr />
-      <span> © 2023 </span>
-      <span
-        >Inspired by <a href="https://www.chingu.io" target="_blank">Chingu</a>.
-        Built for Voyage 44. |
-        <a
-          href="https://github.com/chingu-voyages/v44-tier1-team-05"
-          target="_blank"
-          >View Source</a
-        >
+      <div class="footer_infotwo">
+        <span> © 2023 </span>
+        <span
+          >Inspired by
+          <a href="https://www.chingu.io" target="_blank">Chingu</a>. Built for
+          Voyage 44. |
+          <a
+            href="https://github.com/chingu-voyages/v44-tier1-team-05"
+            target="_blank"
+            >View Source</a
+          >
+          |
+          <a
+            href="https://github.com/chingu-voyages/v44-tier1-team-05/"
+            target="_blank"
+            >Learn More</a
+          >
+        </span>
         |
-        <a
-          href="https://github.com/chingu-voyages/v44-tier1-team-05/"
-          target="_blank"
-          >Learn More</a
-        >
-      </span>
-      |
-      <a href="#" id="developersPage">Meet Team 05</a>
+        <a href="#" id="developersPage">Meet Team 05</a>
+      </div>
     </footer>
     <script src="app.js"></script>
   </body>

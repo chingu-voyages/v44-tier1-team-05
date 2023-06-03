@@ -87,27 +87,101 @@ textarea {
      Author's custom styles
      ========================================================================== */
 
-
 body {
-  background-image: url("/docs/images/graph_paper.jpeg");
+  background-image: url("/docs/images/graph_paper_large.jpg");
   background-size: cover;
+  background-position: center;
+  min-height: 97vh;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(calc(100% /3), 1fr));
-  grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+  place-items: center;
+  font-family: "Dokdo", cursive;
+  box-sizing: border-box;
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  height: 6em;
+  left: 0px;
+  top: 0px;
+  background: #177e89;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
+    0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+header h1 {
+  position: absolute;
+  width: 622px;
+  height: 120px;
+  left: 409px;
+  top: -45px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 120px;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
+    0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.game-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  top: 180px;
+  left: 150px;
 }
 
 .game-board {
   display: grid;
-  grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
-  grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+  grid-template-columns: 38px 38px 38px 38px 38px 38px 38px 38px 38px 38px;
+  grid-template-rows: 38px 38px 38px 38px 38px 38px 38px 38px 38px 38px;
   justify-content: center;
   position: relative;
 }
 
 .box {
-  background-color: gray;
-  border: 1px solid black;
+  background-color: #948c8c;
+  border-radius: 5px;
+  margin: 0.08em;
   cursor: pointer;
+}
+
+.gameControl_dice {
+  text-align: center;
+  max-width: 15.5em;
+  height: 8.5 em;
+  margin-top: 1em;
+  border: 10px solid #db3a34;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.gameControl_btn {
+  position: absolute;
+  top: 180px;
+  right: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.gameControl_box {
+  background: #084c61;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#countdown {
+  position: absolute;
+  top: 6em;
+  background: #323031;
+  color: #ffc857;
+  padding: 0.5em 1em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
 }
 
 @-webkit-keyframes spindice {
@@ -135,7 +209,7 @@ body {
 }
 
 img {
-  width: 10vh;
+  width: 7vh;
   padding: 2vh;
   -webkit-animation: none;
   animation: none;
@@ -144,7 +218,7 @@ img {
 button {
   margin: 1vh;
   font-size: 2vh;
-  font-family: 'Dokdo';
+  font-family: "Dokdo";
   color: #fff;
   background-color: rgb(250, 112, 112);
   height: auto;
@@ -158,41 +232,41 @@ button {
 }
 
 #rollDice {
-  background-color: #DB3A34;
-  color: #FFC857;
+  background-color: #db3a34;
+  color: #ffc857;
 }
 
 #clear-btn {
-  background-color: #177E89;
-  color: #FFC857;
+  background-color: #177e89;
+  color: #ffc857;
 }
 
 #newGame-btn {
-  background-color: #094B61;
-  color: #FFC857;
+  background-color: #094b61;
+  color: #ffc857;
 }
 
 #skip-btn {
-  background-color: #177E89;
-  color: #FFC857;
+  background: #ffffff;
+  color: #094b61;
+  border-radius: 24px;
 }
 
 #submit-btn {
-  background-color: #177E89;
-  color: #FFC857;
+  background-color: #177e89;
+  color: #ffc857;
 }
 
 #dark-light-btn {
-  background-color: #094B61;
-  color: #FFC857;
+  background-color: #094b61;
+  color: #ffc857;
   border-radius: 50px;
 }
 
 #option-btn {
-  background-color: #094B61;
-  color: #FFC857;
+  background-color: #094b61;
+  color: #ffc857;
 }
-
 
 button:hover {
   background-color: #f70f0f;
@@ -204,56 +278,42 @@ button:hover {
 }
 
 /* style for error message */
-#error {
-  color: rgb(218, 108, 19);
-  font-weight: bold;
+.message-container {
   text-align: center;
-  margin-top: 10px;
-  cursor: pointer;
+  margin: 0 auto;
+  width: 20%;
+  position: absolute;
+  left: 150px;
+  top: 450px;
+  background: #db3a34;
+  border-radius: 2px;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* Style for the leaderboard */
 #leaderboard-table {
-  width: 0%;
+  width: 80%;
   border-collapse: collapse;
-  margin-top: 20px;
 }
 
 /* Style for the table headers */
 #leaderboard-table th {
-  padding: 10px;
+  padding: 5px;
   text-align: center;
-  background-color: #ddd;
 }
-
 /* Style for the table cells */
 #leaderboard-table td {
-  padding: 10px;
+  padding: 5px;
   text-align: center;
-  border: 1px solid #ddd;
+  border: 1px solid black;
+  background: #177e89;
 }
 
 /* Style for the first column of the table */
 #leaderboard-table td:first-child,
 #leaderboard-table th:first-child {
   text-align: left;
-}
-
-/* Style for the cell with id "time-up-cell" */
-#time-up-cell {
-  background-color: #ffc107;
-}
-
-/* Style for the cell with id "grid-full-cell" */
-#grid-full-cell {
-  background-color: #dc3545;
-  color: #fff;
-}
-
-/* Style for the cell with id "two-losses-cell" */
-#two-losses-cell {
-  background-color: #17a2b8;
-  color: #fff;
 }
 
 /* Style for the cell with id "total-wins" */
@@ -261,84 +321,34 @@ button:hover {
   font-weight: bold;
 }
 
-/* Style for even rows */
-#leaderboard-table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
 .occupied {
-  background-color: rgb(252, 231, 4);
+  background-color: #ffc857;
 }
 
 .block {
-  background-color: rgb(255, 102, 0);
-}
-
-/* style for error message */
-#error {
-  color: rgb(218, 108, 19);
-  font-weight: bold;
-  text-align: center;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-/* Style for the leaderboard */
-#leaderboard-table {
-  width: 0%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-/* Style for the table headers */
-#leaderboard-table th {
-  padding: 10px;
-  text-align: center;
-  background-color: #ddd;
-}
-
-/* Style for the table cells */
-#leaderboard-table td {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
-}
-
-/* Style for the first column of the table */
-#leaderboard-table td:first-child,
-#leaderboard-table th:first-child {
-  text-align: left;
-}
-
-/* Style for the cell with id "time-up-cell" */
-#time-up-cell {
-  background-color: #ffc107;
-}
-
-/* Style for the cell with id "grid-full-cell" */
-#grid-full-cell {
-  background-color: #dc3545;
-  color: rgb(0, 0, 0);
-}
-
-/* Style for the cell with id "two-losses-cell" */
-#two-losses-cell {
-  background-color: #17a2b8;
-  color: rgb(0, 0, 0);
-}
-
-/* Style for even rows */
-#leaderboard-table tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #db3a34;
 }
 
 footer {
-  display: grid;
-  grid-template-columns: repeat(autofill, 1fr);
-  grid-template-rows: repeat(autofill, 1fr);
-  /* visibility: hidden; */
+  background: #177e89;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
+    0px 4px 4px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
 
+.footer_info {
+  position: relative;
+  top: 10px;
+}
+.footer_infotwo {
+  position: relative;
+  bottom: 8px;
+}
+/* visibility: hidden; */
 
 /* ==========================================================================
      Helper classes
@@ -428,14 +438,14 @@ footer {
      Modify as content requires.
      ========================================================================== */
 
-@media only screen and (min-width: 35em) {
+@media only screen and (max-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
 }
 
 @media print,
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 1.25dppx),
-(min-resolution: 120dpi) {
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
 
@@ -446,7 +456,6 @@ footer {
      ========================================================================== */
 
 @media print {
-
   *,
   *::before,
   *::after {
