@@ -181,12 +181,12 @@ main {
 }
 #countdown {
   display: block;
-  height: 55px;
+  height: 40px;
   margin: 0 auto 0.2em;
   width: 150px;
   font-style: normal;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 30px;
   text-align: center;
   color: #ffc857;
   background: #323031;
