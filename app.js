@@ -14,6 +14,7 @@ let clearButton = document.getElementById("clear-btn");
 let newGameButton = document.getElementById("newGame-btn");
 let submitButton = document.getElementById("submit-btn");
 let skipButton = document.getElementById("skip-btn");
+let darkLightButton = document.getElementById("dark-light-btn");
 let imageDiceOne = document.getElementById("dice01");
 let imageDiceTwo = document.getElementById("dice02");
 let displayDice = document.querySelector(".diceResult");
@@ -31,6 +32,7 @@ disableButtons();
 
 // Add an event listener to the initial button
 playButton.addEventListener("click", function () {
+  document.querySelector(".message-container").classList.add("hidden");
   // Enable the four buttons
   enableButtons();
   //End previous Timer
@@ -43,6 +45,7 @@ playButton.addEventListener("click", function () {
 
 // add event listener to rollDice button
 rollD.addEventListener("click", function (event) {
+  document.querySelector(".message-container").classList.add("hidden");
   rollThatDice();
 });
 
@@ -218,7 +221,7 @@ function rollThatDice() {
     imageDiceTwo.style.animation = "none";
   }, 250);
   audio.play();
-  displayDice.innerHTML = diceOneValue + " x " + diceTwoValue + " = ";
+  displayDice.innerHTML = diceOneValue + " x " + diceTwoValue;
 
   // Disable roll dice button
   rollD.disabled = true;
@@ -280,6 +283,7 @@ function checkAnswer() {
   });
   console.log(filterWord);
   if (filterWord.length !== dice1 * dice2) {
+    document.querySelector(".message-container").classList.remove("hidden");
     // Display error message
     document.getElementById("error").textContent =
       "The number of marked squares doesn't match the numbers on the dice. Please mark the grid to match the dice.";
@@ -293,6 +297,7 @@ function checkAnswer() {
       square.classList.remove("occupied");
     });
   } else {
+    document.querySelector(".message-container").classList.remove("hidden");
     // Clear error message
     document.getElementById("error").textContent = "Good Job!";
     // Enable roll dice button
@@ -319,6 +324,7 @@ function fullGridCheck() {
 
   squares.forEach((square) => {
     if (numBlockedSquares.length >= 100) {
+      document.querySelector(".message-container").classList.remove("hidden");
       //Display win message
       document.getElementById("error").textContent =
         "Congratulations! You have won the game! Press the PLAY button to play again.";
@@ -409,11 +415,13 @@ function skipTurn() {
     stopTimer();
     skipCount = 0;
     clearEverything();
+    document.querySelector(".message-container").classList.remove("hidden");
     document.getElementById("error").textContent =
       "You skipped your turn too many times! You have lost the game!";
   } else {
     //Clear grid for next player
     clearGrid();
+    document.querySelector(".message-container").classList.remove("hidden");
     // Clear error message
     document.getElementById("error").textContent =
       "You have skipped your turn. Next player, please!";
@@ -450,7 +458,7 @@ function displayTotalScores() {
   document.getElementById("total-wins").textContent = totalW;
 }
 
-function toggleDarkMode() {
+darkLightButton.addEventListener("click", function () {
   const body = document.querySelector("body");
   body.classList.toggle("dark-mode");
-}
+});
