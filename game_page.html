@@ -65,17 +65,19 @@
               <td id="two-losses-loss">0</td>
             </tr>
           </table>
-          <div class="gameControl_dice">
-            <div class="dice-control"></div>
-            <img id="dice01" src="https://bit.ly/dice-unknown" />
-            <img id="dice02" src="https://bit.ly/dice-unknown" />
-            <p class="diceResult"></p>
-            <!-- A link to the roll sound you hear-->
-            <audio id="audio" src="https://bit.ly/dice-sound"></audio>
-          </div>
-          <div class="message-container">
-            <p id="error"></p>
-            <p id="start">Press PLAY to begin!</p>
+          <div class="mobile">
+            <div class="gameControl_dice">
+              <div class="dice-control"></div>
+              <img id="dice01" src="https://bit.ly/dice-unknown" />
+              <img id="dice02" src="https://bit.ly/dice-unknown" />
+              <p class="diceResult"></p>
+              <!-- A link to the roll sound you hear-->
+              <audio id="audio" src="https://bit.ly/dice-sound"></audio>
+            </div>
+            <div class="message-container">
+              <p id="error"></p>
+              <p id="start">Press PLAY to begin!</p>
+            </div>
           </div>
         </div>
         <div class="game-board">
@@ -187,22 +189,24 @@
           <div><p id="countdown"></p></div>
         </div>
         <!--Start Play-->
-        <button id="play-btn">Play</button>
-        <div class="gameControl_box">
-          <!-- button clicked and it executes rollThatDice()-->
-          <button id="rollDice">Roll Dice</button>
-          <!-- skips player turn -->
-          <button id="skip-btn">Skip Turn</button>
+        <div class="mob_btn">
+          <button id="play-btn">Play</button>
+          <div class="gameControl_box">
+            <!-- button clicked and it executes rollThatDice()-->
+            <button id="rollDice">Roll Dice</button>
+            <!-- skips player turn -->
+            <button id="skip-btn">Skip Turn</button>
+          </div>
+          <!-- allow user to clear the grid and to start refilling it using the values from the current roll. This allows the user to try different options.-->
+          <button id="clear-btn">Clear Grid</button>
+          <!-- allow user to submit their answer-->
+          <button id="submit-btn">Submit Answer</button>
+          <!--New Game and should execute a modal-->
+          <button id="newGame-btn">New Game</button>
+          <!-- open Options menu -->
+          <button id="option-btn">Options</button>
+          <button id="dark-light-btn">Dark/Light Mode</button>
         </div>
-        <!-- allow user to clear the grid and to start refilling it using the values from the current roll. This allows the user to try different options.-->
-        <button id="clear-btn">Clear Grid</button>
-        <!-- allow user to submit their answer-->
-        <button id="submit-btn">Submit Answer</button>
-        <!--New Game and should execute a modal-->
-        <button id="newGame-btn">New Game</button>
-        <!-- open Options menu -->
-        <button id="option-btn">Options</button>
-        <button id="dark-light-btn">Dark/Light Mode</button>
       </div>
     </main>
     <footer>

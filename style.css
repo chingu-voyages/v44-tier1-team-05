@@ -86,269 +86,483 @@ textarea {
 /* ==========================================================================
      Author's custom styles
      ========================================================================== */
-
-body {
-  background-image: url("/docs/images/graph_paper_large.jpg");
-  background-size: cover;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Dokdo", cursive;
-  box-sizing: border-box;
-}
-
-header {
-  position: absolute;
-  width: 100%;
-  height: 6em;
-  left: 0px;
-  top: 0px;
-  background: #177e89;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
-    0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-header h1 {
-  margin: 0 auto;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 60px;
-  line-height: 120px;
-  text-align: center;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
-    0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-main {
-  max-width: 90%;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  justify-content: space-between;
-  align-content: center;
-}
-
-.game-leaderboard {
-  box-sizing: border-box;
-  margin-right: 8em;
-  display: flex;
-  flex-direction: column;
-  width: 18em;
-}
-.gameControl_dice {
-  margin: 2em 0;
-  text-align: center;
-  border: 10px solid #db3a34;
-  background-color: white;
-}
-
-.game-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.game-board {
-  box-sizing: border-box;
-  margin-right: 6em;
-  margin-top: 2em;
-  display: grid;
-  grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
-  grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
-  justify-content: center;
-  position: relative;
-}
-
-.box {
-  background-color: #948c8c;
-  border-radius: 5px;
-  margin: 0.08em;
-  cursor: pointer;
-}
-
-.gameControl_btn {
-  width: 10em;
-  display: flex;
-  flex-direction: column;
-}
-
-.gameControl_box {
-  background: #084c61;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column-reverse;
-}
-#countdown {
-  display: block;
-  height: 40px;
-  margin: 0 auto 0.2em;
-  width: 150px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  text-align: center;
-  color: #ffc857;
-  background: #323031;
-}
-
-.message-container {
-  padding: 0em 1em;
-  background: #db3a34;
-  color: white;
-  border-radius: 5px;
-  text-align: center;
-}
-@-webkit-keyframes spindice {
-  0% {
-    transform: rotate(0deg);
-    filter: blur(5px);
+@media only screen and (max-width: 800px) {
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: "Dokdo", cursive;
+    background: url("/docs/images/graph_paper_large.jpg");
+    background-position: center;
   }
 
-  100% {
-    transform: rotate(360deg);
-    filter: blur(5px);
+  header {
+    position: absolute;
+    width: 100%;
+    height: 3em;
+    left: 0px;
+    top: 0px;
+    background: #177e89;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
+      0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  header h1 {
+    margin: -35px auto 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 120px;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  main {
+    margin-top: 1em;
+    margin-bottom: 5em;
+    height: 100vh;
+  }
+
+  .mobile {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 1em 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+  }
+  .gameControl_dice {
+    text-align: center;
+    border: 6px solid #db3a34;
+    background-color: white;
+  }
+
+  .message-container {
+    width: 40%;
+    height: 60%;
+    padding: 0.5em 0.8em;
+    background: #db3a34;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .game-board {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px;
+    grid-template-rows: 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px;
+    justify-content: center;
+  }
+
+  .box {
+    background-color: #948c8c;
+    border-radius: 5px;
+    margin: 0.08em;
+    cursor: pointer;
+  }
+
+  img {
+    width: 4vh;
+    padding: 1vh;
+    -webkit-animation: none;
+    animation: none;
+  }
+  /* Style for the leaderboard */
+  #leaderboard-table {
+    margin: 2em auto 0;
+    width: 80%;
+    border-collapse: collapse;
+  }
+
+  /* Style for the table headers */
+  #leaderboard-table th {
+    padding: 1px;
+    text-align: center;
+  }
+  /* Style for the table cells */
+  #leaderboard-table td {
+    padding: 1px;
+    text-align: center;
+    border: 1px solid black;
+    background: #ffc857;
+  }
+
+  /* Style for the first column of the table */
+  #leaderboard-table td:first-child,
+  #leaderboard-table th:first-child {
+    text-align: center;
+  }
+
+  /* Style for the cell with id "total-wins" */
+  #total-wins {
+    font-weight: bold;
+  }
+
+  .occupied {
+    background-color: #ffc857;
+  }
+
+  .block {
+    background-color: #db3a34;
+  }
+
+  #countdown {
+    display: block;
+    height: 30px;
+    margin: 0.5em auto 0.2em;
+    width: 100px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    color: #ffc857;
+    background: #323031;
+  }
+  .mob_btn {
+    margin-top: -2em;
+    margin-left: 0.1em;
+  }
+  button {
+    margin: 0.1em;
+    font-size: 2vh;
+    font-family: "Dokdo";
+    color: #fff;
+    background-color: rgb(250, 112, 112);
+    height: auto;
+    border: none;
+    padding: 1vh 2vh;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: rgba(7, 24, 53, 0.25) 0px 4px 8px -2px,
+      rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  }
+
+  #rollDice {
+    background-color: #db3a34;
+    color: #ffc857;
+  }
+
+  #clear-btn {
+    background-color: #177e89;
+    color: #ffc857;
+  }
+
+  #newGame-btn {
+    background-color: #094b61;
+    color: #ffc857;
+  }
+
+  #skip-btn {
+    background: #ffffff;
+    color: #094b61;
+    border-radius: 24px;
+  }
+
+  #submit-btn {
+    background-color: #177e89;
+    color: #ffc857;
+  }
+
+  #dark-light-btn {
+    background-color: #094b61;
+    color: #ffc857;
+    border-radius: 50px;
+    height: 2em;
+  }
+
+  #option-btn {
+    background-color: #094b61;
+    color: #ffc857;
+  }
+
+  button:hover {
+    background-color: #f70f0f;
+    color: #ffffff;
+  }
+
+  footer {
+    background: #177e89;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
+      0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer_info {
+    position: relative;
+    top: 8px;
+  }
+  .footer_infotwo {
+    position: relative;
+    bottom: 1px;
   }
 }
 
-@keyframes spindice {
-  0% {
-    transform: rotate(0deg);
-    filter: blur(5px);
+@media only screen and (min-width: 1150px) {
+  body {
+    background-image: url("/docs/images/graph_paper_large.jpg");
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Dokdo", cursive;
+    box-sizing: border-box;
   }
 
-  100% {
-    transform: rotate(360deg);
-    filter: blur(5px);
+  header {
+    position: absolute;
+    width: 100%;
+    height: 6em;
+    left: 0px;
+    top: 0px;
+    background: #177e89;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
+      0px 4px 4px rgba(0, 0, 0, 0.25);
   }
-}
 
-img {
-  width: 7vh;
-  padding: 2vh;
-  -webkit-animation: none;
-  animation: none;
-}
+  header h1 {
+    margin: 0 auto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 120px;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
 
-button {
-  margin: 1vh;
-  font-size: 2vh;
-  font-family: "Dokdo";
-  color: #fff;
-  background-color: rgb(250, 112, 112);
-  height: auto;
-  border: none;
-  padding: 1vh 2vh;
-  border-radius: 3px;
-  cursor: pointer;
+  main {
+    max-width: 90%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+  }
 
-  box-shadow: rgba(7, 24, 53, 0.25) 0px 4px 8px -2px,
-    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-}
+  .game-leaderboard {
+    box-sizing: border-box;
+    margin-right: 8em;
+    display: flex;
+    flex-direction: column;
+    width: 18em;
+  }
+  .gameControl_dice {
+    margin: 2em 0;
+    text-align: center;
+    border: 10px solid #db3a34;
+    background-color: white;
+  }
 
-#rollDice {
-  background-color: #db3a34;
-  color: #ffc857;
-}
+  .game-container {
+    display: flex;
+    flex-direction: row;
+  }
 
-#clear-btn {
-  background-color: #177e89;
-  color: #ffc857;
-}
+  .game-board {
+    box-sizing: border-box;
+    margin-right: 6em;
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
+    grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
+    justify-content: center;
+    position: relative;
+  }
 
-#newGame-btn {
-  background-color: #094b61;
-  color: #ffc857;
-}
+  .box {
+    background-color: #948c8c;
+    border-radius: 5px;
+    margin: 0.08em;
+    cursor: pointer;
+  }
 
-#skip-btn {
-  background: #ffffff;
-  color: #094b61;
-  border-radius: 24px;
-}
+  .gameControl_btn {
+    width: 10em;
+    display: flex;
+    flex-direction: column;
+  }
 
-#submit-btn {
-  background-color: #177e89;
-  color: #ffc857;
-}
+  .gameControl_box {
+    background: #084c61;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  #countdown {
+    display: block;
+    height: 40px;
+    margin: 0 auto 0.2em;
+    width: 150px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+    color: #ffc857;
+    background: #323031;
+  }
 
-#dark-light-btn {
-  background-color: #094b61;
-  color: #ffc857;
-  border-radius: 50px;
-  height: 2em;
-}
+  .message-container {
+    padding: 0em 1em;
+    background: #db3a34;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+  }
+  @-webkit-keyframes spindice {
+    0% {
+      transform: rotate(0deg);
+      filter: blur(5px);
+    }
 
-#option-btn {
-  background-color: #094b61;
-  color: #ffc857;
-}
+    100% {
+      transform: rotate(360deg);
+      filter: blur(5px);
+    }
+  }
 
-button:hover {
-  background-color: #f70f0f;
-  color: #ffffff;
-}
+  @keyframes spindice {
+    0% {
+      transform: rotate(0deg);
+      filter: blur(5px);
+    }
 
-.occupied {
-  background-color: rgb(241, 222, 16);
-}
+    100% {
+      transform: rotate(360deg);
+      filter: blur(5px);
+    }
+  }
 
-/* Style for the leaderboard */
-#leaderboard-table {
-  width: 100%;
-  border-collapse: collapse;
-}
+  img {
+    width: 7vh;
+    padding: 2vh;
+    -webkit-animation: none;
+    animation: none;
+  }
 
-/* Style for the table headers */
-#leaderboard-table th {
-  padding: 5px;
-  text-align: center;
-}
-/* Style for the table cells */
-#leaderboard-table td {
-  padding: 5px;
-  text-align: center;
-  border: 1px solid black;
-  background: #177e89;
-}
+  button {
+    margin: 1vh;
+    font-size: 2vh;
+    font-family: "Dokdo";
+    color: #fff;
+    background-color: rgb(250, 112, 112);
+    height: auto;
+    border: none;
+    padding: 1vh 2vh;
+    border-radius: 3px;
+    cursor: pointer;
 
-/* Style for the first column of the table */
-#leaderboard-table td:first-child,
-#leaderboard-table th:first-child {
-  text-align: left;
-}
+    box-shadow: rgba(7, 24, 53, 0.25) 0px 4px 8px -2px,
+      rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  }
 
-/* Style for the cell with id "total-wins" */
-#total-wins {
-  font-weight: bold;
-}
+  #rollDice {
+    background-color: #db3a34;
+    color: #ffc857;
+  }
 
-.occupied {
-  background-color: #ffc857;
-}
+  #clear-btn {
+    background-color: #177e89;
+    color: #ffc857;
+  }
 
-.block {
-  background-color: #db3a34;
-}
+  #newGame-btn {
+    background-color: #094b61;
+    color: #ffc857;
+  }
 
-footer {
-  background: #177e89;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
-    0px 4px 4px rgba(0, 0, 0, 0.25);
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}
+  #skip-btn {
+    background: #ffffff;
+    color: #094b61;
+    border-radius: 24px;
+  }
 
-.footer_info {
-  position: relative;
-  top: 10px;
-}
-.footer_infotwo {
-  position: relative;
-  bottom: 8px;
+  #submit-btn {
+    background-color: #177e89;
+    color: #ffc857;
+  }
+
+  #dark-light-btn {
+    background-color: #094b61;
+    color: #ffc857;
+    border-radius: 50px;
+    height: 2em;
+  }
+
+  #option-btn {
+    background-color: #094b61;
+    color: #ffc857;
+  }
+
+  button:hover {
+    background-color: #f70f0f;
+    color: #ffffff;
+  }
+
+  /* Style for the leaderboard */
+  #leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  /* Style for the table headers */
+  #leaderboard-table th {
+    padding: 5px;
+    text-align: center;
+  }
+  /* Style for the table cells */
+  #leaderboard-table td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid black;
+    background: #177e89;
+  }
+
+  /* Style for the first column of the table */
+  #leaderboard-table td:first-child,
+  #leaderboard-table th:first-child {
+    text-align: left;
+  }
+
+  /* Style for the cell with id "total-wins" */
+  #total-wins {
+    font-weight: bold;
+  }
+
+  .occupied {
+    background-color: #ffc857;
+  }
+
+  .block {
+    background-color: #db3a34;
+  }
+
+  footer {
+    background: #177e89;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
+      0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer_info {
+    position: relative;
+    top: 10px;
+  }
+  .footer_infotwo {
+    position: relative;
+    bottom: 8px;
+  }
 }
 /* visibility: hidden; */
 
@@ -440,9 +654,7 @@ footer {
      Modify as content requires.
      ========================================================================== */
 
-@media only screen and (max-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
+/* Style adjustments for viewports that meet the condition */
 
 @media print,
   (-webkit-min-device-pixel-ratio: 1.25),
