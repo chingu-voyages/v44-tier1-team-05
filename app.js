@@ -91,8 +91,15 @@ divArray.forEach((square) => {
   square.addEventListener("mousedown", startDrag);
   square.addEventListener("mouseover", drag);
   square.addEventListener("mouseup", endDrag);
+  square.addEventListener("click", markOnClick);
 });
 
+// Function to handle click event on grid cells
+function markOnClick(event) {
+  if (!isDragging) {
+    markSquare(event.target);
+  }
+}
 // Variables to track dragging state
 let isDragging = false;
 let startSquare = null;
