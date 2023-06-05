@@ -86,14 +86,77 @@ textarea {
 /* ==========================================================================
      Author's custom styles
      ========================================================================== */
-@media only screen and (max-width: 800px) {
+.occupied {
+  background-color: #ffc857;
+}
+
+.block {
+  background-color: #db3a34;
+}
+
+#rollDice {
+  background-color: #db3a34;
+  color: #ffc857;
+}
+
+#clear-btn {
+  background-color: #177e89;
+  color: #ffc857;
+}
+
+#newGame-btn {
+  background-color: #094b61;
+  color: #ffc857;
+}
+
+#skip-btn {
+  background: #ffffff;
+  color: #094b61;
+  border-radius: 24px;
+}
+
+#submit-btn {
+  background-color: #177e89;
+  color: #ffc857;
+}
+
+#dark-light-btn {
+  background-color: #094b61;
+  color: #ffc857;
+  border-radius: 50px;
+  height: 2em;
+}
+
+#option-btn {
+  background-color: #094b61;
+  color: #ffc857;
+}
+
+button {
+  font-family: "Dokdo", cursive;
+  color: #fff;
+  background-color: rgb(250, 112, 112);
+  height: auto;
+  border: none;
+  padding: 1vh 2vh;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: rgba(7, 24, 53, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+button:hover {
+  background-color: #f70f0f;
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 1150px) {
   body {
     min-height: 100vh;
     display: grid;
     place-items: center;
     font-family: "Dokdo", cursive;
-    background: url("/docs/images/graph_paper_large.jpg");
-    background-position: center;
+    cursor: pointer;
   }
 
   header {
@@ -119,8 +182,8 @@ textarea {
   }
 
   main {
-    margin-top: 1em;
-    margin-bottom: 5em;
+    padding-top: 2em;
+    padding-bottom: 8em;
     height: 100vh;
   }
 
@@ -162,7 +225,13 @@ textarea {
     margin: 0.08em;
     cursor: pointer;
   }
+  .occupied {
+    background-color: #ffc857;
+  }
 
+  .block {
+    background-color: #db3a34;
+  }
   img {
     width: 4vh;
     padding: 1vh;
@@ -200,18 +269,11 @@ textarea {
     font-weight: bold;
   }
 
-  .occupied {
-    background-color: #ffc857;
-  }
-
-  .block {
-    background-color: #db3a34;
-  }
-
   #countdown {
+    font-family: "Dokdo", cursive;
     display: block;
     height: 30px;
-    margin: 0.5em auto 0.2em;
+    margin: 0.5em auto 0;
     width: 100px;
     font-style: normal;
     font-weight: 400;
@@ -221,65 +283,17 @@ textarea {
     background: #323031;
   }
   .mob_btn {
-    margin-top: -2em;
-    margin-left: 0.1em;
+    margin-left: 1.6em;
+    margin-top: -1.5em;
   }
+
   button {
     margin: 0.1em;
     font-size: 2vh;
-    font-family: "Dokdo";
-    color: #fff;
-    background-color: rgb(250, 112, 112);
-    height: auto;
-    border: none;
-    padding: 1vh 2vh;
-    border-radius: 3px;
-    cursor: pointer;
-    box-shadow: rgba(7, 24, 53, 0.25) 0px 4px 8px -2px,
-      rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-  }
-
-  #rollDice {
-    background-color: #db3a34;
-    color: #ffc857;
-  }
-
-  #clear-btn {
-    background-color: #177e89;
-    color: #ffc857;
-  }
-
-  #newGame-btn {
-    background-color: #094b61;
-    color: #ffc857;
-  }
-
-  #skip-btn {
-    background: #ffffff;
-    color: #094b61;
-    border-radius: 24px;
-  }
-
-  #submit-btn {
-    background-color: #177e89;
-    color: #ffc857;
   }
 
   #dark-light-btn {
-    background-color: #094b61;
-    color: #ffc857;
-    border-radius: 50px;
     height: 2em;
-  }
-
-  #option-btn {
-    background-color: #094b61;
-    color: #ffc857;
-  }
-
-  button:hover {
-    background-color: #f70f0f;
-    color: #ffffff;
   }
 
   footer {
@@ -305,8 +319,6 @@ textarea {
 
 @media only screen and (min-width: 1150px) {
   body {
-    background-image: url("/docs/images/graph_paper_large.jpg");
-    background-size: cover;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -354,6 +366,7 @@ textarea {
     width: 18em;
   }
   .gameControl_dice {
+    font-family: "Dokdo", cursive;
     margin: 2em 0;
     text-align: center;
     border: 10px solid #db3a34;
@@ -380,7 +393,6 @@ textarea {
     background-color: #948c8c;
     border-radius: 5px;
     margin: 0.08em;
-    cursor: pointer;
   }
 
   .gameControl_btn {
@@ -397,6 +409,7 @@ textarea {
     flex-direction: column-reverse;
   }
   #countdown {
+    font-family: "Dokdo", cursive;
     display: block;
     height: 40px;
     margin: 0 auto 0.2em;
@@ -410,6 +423,7 @@ textarea {
   }
 
   .message-container {
+    font-family: "Dokdo", cursive;
     padding: 0em 1em;
     background: #db3a34;
     color: white;
@@ -450,62 +464,14 @@ textarea {
   button {
     margin: 1vh;
     font-size: 2vh;
-    font-family: "Dokdo";
-    color: #fff;
-    background-color: rgb(250, 112, 112);
-    height: auto;
-    border: none;
-    padding: 1vh 2vh;
-    border-radius: 3px;
-    cursor: pointer;
-
-    box-shadow: rgba(7, 24, 53, 0.25) 0px 4px 8px -2px,
-      rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  }
+  .occupied {
+    background-color: #ffc857;
   }
 
-  #rollDice {
+  .block {
     background-color: #db3a34;
-    color: #ffc857;
   }
-
-  #clear-btn {
-    background-color: #177e89;
-    color: #ffc857;
-  }
-
-  #newGame-btn {
-    background-color: #094b61;
-    color: #ffc857;
-  }
-
-  #skip-btn {
-    background: #ffffff;
-    color: #094b61;
-    border-radius: 24px;
-  }
-
-  #submit-btn {
-    background-color: #177e89;
-    color: #ffc857;
-  }
-
-  #dark-light-btn {
-    background-color: #094b61;
-    color: #ffc857;
-    border-radius: 50px;
-    height: 2em;
-  }
-
-  #option-btn {
-    background-color: #094b61;
-    color: #ffc857;
-  }
-
-  button:hover {
-    background-color: #f70f0f;
-    color: #ffffff;
-  }
-
   /* Style for the leaderboard */
   #leaderboard-table {
     width: 100%;
@@ -534,14 +500,6 @@ textarea {
   /* Style for the cell with id "total-wins" */
   #total-wins {
     font-weight: bold;
-  }
-
-  .occupied {
-    background-color: #ffc857;
-  }
-
-  .block {
-    background-color: #db3a34;
   }
 
   footer {
