@@ -152,10 +152,8 @@ button:hover {
 .cursor {
   cursor: none;
   background-image: url('/docs/images/Rocket_Ship_Blue_cursor.png');
-  /* Set an appropriate size for the cursor image */
   width: 20px;
   height: 20px;
-  /* Optional: Customize the position of the cursor image */
   position: fixed;
   top: 0;
   left: 0;
