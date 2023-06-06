@@ -157,6 +157,9 @@ button:hover {
     place-items: center;
     font-family: "Dokdo", cursive;
     cursor: pointer;
+    background-image: url("./docs/images/graph_grid_large.png");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   header {
@@ -196,9 +199,10 @@ button:hover {
     align-content: center;
   }
   .gameControl_dice {
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+      rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     text-align: center;
     border: 6px solid #db3a34;
-    background-color: white;
   }
 
   .message-container {
@@ -220,7 +224,9 @@ button:hover {
   }
 
   .box {
-    background-color: #948c8c;
+    background-color: #ffffff;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+      rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     border-radius: 5px;
     margin: 0.08em;
     cursor: pointer;
@@ -325,6 +331,9 @@ button:hover {
     justify-content: center;
     font-family: "Dokdo", cursive;
     box-sizing: border-box;
+    background-image: url("./docs/images/graph_grid_large.png");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   header {
@@ -366,11 +375,12 @@ button:hover {
     width: 18em;
   }
   .gameControl_dice {
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+      rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     font-family: "Dokdo", cursive;
     margin: 2em 0;
     text-align: center;
     border: 10px solid #db3a34;
-    background-color: white;
   }
 
   .game-container {
@@ -390,7 +400,9 @@ button:hover {
   }
 
   .box {
-    background-color: #948c8c;
+    background-color: #ffffff;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+      rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     border-radius: 5px;
     margin: 0.08em;
   }
@@ -402,6 +414,7 @@ button:hover {
   }
 
   .gameControl_box {
+    width: 70%;
     background: #084c61;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
@@ -485,10 +498,12 @@ button:hover {
   }
   /* Style for the table cells */
   #leaderboard-table td {
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+      rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     padding: 5px;
     text-align: center;
     border: 1px solid black;
-    background: #177e89;
+    background-color: #ffc857;
   }
 
   /* Style for the first column of the table */
