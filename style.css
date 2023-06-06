@@ -140,7 +140,6 @@ button {
   border: none;
   padding: 1vh 2vh;
   border-radius: 3px;
-  cursor: pointer;
   box-shadow: rgba(7, 24, 53, 0.25) 0px 4px 8px -2px,
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
@@ -148,6 +147,30 @@ button {
 button:hover {
   background-color: #f70f0f;
   color: #ffffff;
+}
+
+.cursor {
+  cursor: none;
+  background-image: url('/docs/images/Rocket_Ship_Blue_cursor.png');
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body,
+button,
+a,
+input,
+select,
+textarea {
+  cursor: none;
 }
 
 @media only screen and (max-width: 1150px) {
@@ -160,6 +183,7 @@ button:hover {
     background-image: url("./docs/images/graph_grid_large.png");
     background-size: cover;
     background-repeat: no-repeat;
+
   }
 
   header {
@@ -198,6 +222,7 @@ button:hover {
     justify-content: space-evenly;
     align-content: center;
   }
+
   .gameControl_dice {
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
       rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
@@ -229,8 +254,8 @@ button:hover {
       rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     border-radius: 5px;
     margin: 0.08em;
-    cursor: pointer;
   }
+
   .occupied {
     background-color: #ffc857;
   }
@@ -238,12 +263,14 @@ button:hover {
   .block {
     background-color: #db3a34;
   }
+
   img {
     width: 4vh;
     padding: 1vh;
     -webkit-animation: none;
     animation: none;
   }
+
   /* Style for the leaderboard */
   #leaderboard-table {
     margin: 2em auto 0;
@@ -256,6 +283,7 @@ button:hover {
     padding: 1px;
     text-align: center;
   }
+
   /* Style for the table cells */
   #leaderboard-table td {
     padding: 1px;
@@ -288,6 +316,7 @@ button:hover {
     color: #ffc857;
     background: #323031;
   }
+
   .mob_btn {
     margin-left: 1.6em;
     margin-top: -1.5em;
@@ -317,6 +346,7 @@ button:hover {
     position: relative;
     top: 8px;
   }
+
   .footer_infotwo {
     position: relative;
     bottom: 1px;
@@ -331,9 +361,11 @@ button:hover {
     justify-content: center;
     font-family: "Dokdo", cursive;
     box-sizing: border-box;
+    cursor: none;
     background-image: url("./docs/images/graph_grid_large.png");
     background-size: cover;
     background-repeat: no-repeat;
+
   }
 
   header {
@@ -374,6 +406,7 @@ button:hover {
     flex-direction: column;
     width: 18em;
   }
+
   .gameControl_dice {
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
       rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
@@ -421,6 +454,7 @@ button:hover {
     display: flex;
     flex-direction: column-reverse;
   }
+
   #countdown {
     font-family: "Dokdo", cursive;
     display: block;
@@ -443,6 +477,7 @@ button:hover {
     border-radius: 5px;
     text-align: center;
   }
+
   @-webkit-keyframes spindice {
     0% {
       transform: rotate(0deg);
@@ -478,6 +513,7 @@ button:hover {
     margin: 1vh;
     font-size: 2vh;
   }
+
   .occupied {
     background-color: #ffc857;
   }
@@ -485,6 +521,7 @@ button:hover {
   .block {
     background-color: #db3a34;
   }
+
   /* Style for the leaderboard */
   #leaderboard-table {
     width: 100%;
@@ -496,6 +533,7 @@ button:hover {
     padding: 5px;
     text-align: center;
   }
+
   /* Style for the table cells */
   #leaderboard-table td {
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
@@ -532,11 +570,13 @@ button:hover {
     position: relative;
     top: 10px;
   }
+
   .footer_infotwo {
     position: relative;
     bottom: 8px;
   }
 }
+
 /* visibility: hidden; */
 
 /* ==========================================================================
@@ -630,9 +670,9 @@ button:hover {
 /* Style adjustments for viewports that meet the condition */
 
 @media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
 
@@ -643,6 +683,7 @@ button:hover {
      ========================================================================== */
 
 @media print {
+
   *,
   *::before,
   *::after {
