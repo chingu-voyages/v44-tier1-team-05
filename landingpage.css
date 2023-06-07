@@ -248,6 +248,73 @@ textarea {
   }
 }
 
+/* Responsive styles for smaller screens and mobile devices */
+@media only screen and (max-width: 767px) {
+  body {
+    /* Adjust styles for smaller screens and mobile devices */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("docs/images/wood-grain-texture.jpg");
+    background-size: cover;
+    min-height: calc(100vh - 200px);
+    min-width: calc(100vh - 1100px);
+  }
+
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    width: 100%;
+    margin: 50px 0 30px 0;
+    font-size: 40px; /* Adjust font size for smaller screens */
+    font-family: "Dokdo";
+    color: white;
+  }
+
+  .notebook {
+    position: relative;
+    margin: 70px 0 0 0;
+    width: 100%;
+    max-width: 300px; /* Adjust max width for smaller screens */
+    transform: rotate(-9deg);
+    box-shadow: -12px 12px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .goSticker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px; /* Adjust border radius for smaller screens */
+    width: 70px; /* Adjust width for smaller screens */
+    height: 70px; /* Adjust height for smaller screens */
+  }
+
+  .pencil {
+    display: none; /* Hide the pencil image on smaller screens */
+  }
+
+  footer {
+    color: white;
+    width: 100%;
+    padding-top: 50px; /* Adjust padding for smaller screens */
+    margin: 0;
+    text-align: center;
+  }
+
+  a:link {
+    color: white;
+  }
+
+  a:visited {
+    color: #ffc857;
+  }
+}
 @media print,
   (-webkit-min-device-pixel-ratio: 1.25),
   (min-resolution: 1.25dppx),
