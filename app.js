@@ -370,7 +370,10 @@ function endGame() {
   // Clear dice results
   displayDice.innerHTML = " ";
   // Display NEW GAME message
-  startMessage.innerHTML = "Press PLAY to start a NEW GAME!";
+  if ((document.getElementById("error").textContent = "Good Job!")) {
+    document.getElementById("error").textContent = " ";
+    startMessage.innerHTML = "Press PLAY to start a NEW GAME!";
+  }
   // Stop timer
   stopTimer();
   // Reset game state
