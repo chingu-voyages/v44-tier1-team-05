@@ -17,6 +17,11 @@ html {
   line-height: 1.4;
 }
 
+body {
+  background: url("/docs/images/graph_paper_large.jpg");
+  background-size: cover;
+  background-position: left;
+}
 /*
    * Remove text-shadow in selection highlight:
    * https://twitter.com/miketaylr/status/12228805301
@@ -46,7 +51,6 @@ hr {
   height: 1px;
   border: 0;
   border-top: 1px solid #ccc;
-  margin: 1em 0;
   padding: 0;
 }
 
@@ -121,6 +125,7 @@ textarea {
 }
 
 #dark-light-btn {
+  width: fit-content;
   background-color: #094b61;
   color: #ffc857;
   border-radius: 50px;
@@ -138,7 +143,7 @@ button {
   background-color: rgb(250, 112, 112);
   height: auto;
   border: none;
-  padding: 1vh 2vh;
+  margin: 0.1em;
   border-radius: 3px;
   box-shadow: rgba(7, 24, 53, 0.25) 0px 4px 8px -2px,
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
@@ -148,69 +153,181 @@ button:hover {
   background-color: #f70f0f;
   color: #ffffff;
 }
-
-.cursor {
-  cursor: none;
-  background-image: url('docs/images/Rocket_Ship_Blue_cursor.png');
-  width: 20px;
-  height: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  pointer-events: none;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-body,
-button,
-a,
-input,
-select,
-textarea {
-  cursor: none;
-}
-
-@media only screen and (max-width: 1150px) {
+@media only screen and (max-width: 600px) {
   body {
     min-height: 100vh;
     display: grid;
     place-items: center;
     font-family: "Dokdo", cursive;
-    cursor: pointer;
-    background-image: url("./docs/images/graph_grid_large.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+    cursor: url("/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
   }
-
   header {
-    position: absolute;
+    position: fixed;
+    top: 0;
     width: 100%;
-    height: 3em;
-    left: 0px;
-    top: 0px;
     background: #177e89;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
       0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   header h1 {
-    margin: -35px auto 0;
     font-style: normal;
     font-weight: 400;
-    font-size: 30px;
-    line-height: 120px;
+    font-size: 20px;
     text-align: center;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
       0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
+  .gameControl_dice {
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+      rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    text-align: center;
+    width: 40%;
+    border: 6px solid #db3a34;
+  }
+
+  .message-container {
+    padding: 0em 0.1em;
+    background: #db3a34;
+    color: white;
+    border-radius: 1px;
+    text-align: center;
+  }
+  .game-board {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 15px 15px 15px 15px 15px 15px 15px 15px 15px 15px;
+    grid-template-rows: 15px 15px 15px 15px 15px 15px 15px 15px 15px 15px;
+    justify-content: center;
+  }
+  .box {
+    background-color: #ffffff;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+      rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    border-radius: 5px;
+    margin: 0.08em;
+  }
+  img {
+    width: 3vh;
+    padding: 0.5vh;
+    -webkit-animation: none;
+    animation: none;
+  }
+
+  .mobile {
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0.1em 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+  }
+
   main {
-    padding-top: 2em;
-    padding-bottom: 8em;
-    height: 100vh;
+    width: 90%;
+  }
+  /* Style for the leaderboard */
+  #leaderboard-table {
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+
+  /* Style for the table headers */
+  #leaderboard-table th {
+    padding: 1px;
+    text-align: center;
+  }
+
+  /* Style for the table cells */
+  #leaderboard-table td {
+    padding: 1px;
+    text-align: center;
+    border: 1px solid black;
+    background: #ffc857;
+  }
+
+  /* Style for the first column of the table */
+  #leaderboard-table td:first-child,
+  #leaderboard-table th:first-child {
+    text-align: center;
+  }
+
+  /* Style for the cell with id "total-wins" */
+  #total-wins {
+    font-weight: bold;
+  }
+
+  #countdown {
+    font-family: "Dokdo", cursive;
+    display: block;
+    height: 20px;
+    margin: 0.5em auto 0;
+    padding-top: 0.2em;
+    width: 100px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    text-align: center;
+    color: #ffc857;
+    background: #323031;
+  }
+
+  .mob_btn {
+    margin: 0.1em auto 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  footer {
+    background: #177e89;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
+      0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer_info {
+    position: relative;
+    top: 8px;
+  }
+
+  .footer_infotwo {
+    position: relative;
+    bottom: 1px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: "Dokdo", cursive;
+    cursor: url("/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin: 0 auto;
+    background: #177e89;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
+      0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  header h1 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   .mobile {
@@ -232,10 +349,10 @@ textarea {
   .message-container {
     width: 40%;
     height: 60%;
-    padding: 0.5em 0.8em;
+    padding: 1em 0.8em;
     background: #db3a34;
     color: white;
-    border-radius: 5px;
+    border-radius: 1px;
     text-align: center;
   }
 
@@ -272,8 +389,8 @@ textarea {
 
   /* Style for the leaderboard */
   #leaderboard-table {
-    margin: 2em auto 0;
-    width: 80%;
+    margin: 0 auto;
+    width: 90%;
     border-collapse: collapse;
   }
 
@@ -317,17 +434,22 @@ textarea {
   }
 
   .mob_btn {
-    margin-left: 1.6em;
-    margin-top: -1.5em;
+    margin: 0.1em auto 0;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   button {
     margin: 0.1em;
     font-size: 2vh;
+    cursor: pointer;
   }
 
   #dark-light-btn {
-    height: 2em;
+    width: fit-content;
   }
 
   footer {
@@ -360,10 +482,7 @@ textarea {
     justify-content: center;
     font-family: "Dokdo", cursive;
     box-sizing: border-box;
-    cursor: none;
-    background-image: url("./docs/images/graph_grid_large.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+    cursor: url("/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
   }
 
   header {
@@ -395,6 +514,7 @@ textarea {
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
+    cursor: pointer;
   }
 
   .game-leaderboard {
@@ -404,14 +524,17 @@ textarea {
     flex-direction: column;
     width: 18em;
   }
-
+  .mobile {
+    display: flex;
+    flex-direction: column;
+  }
   .gameControl_dice {
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
       rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     font-family: "Dokdo", cursive;
-    margin: 2em 0;
+    margin: 1em auto;
     text-align: center;
-    border: 10px solid #db3a34;
+    border: 8px solid #db3a34;
   }
 
   .game-container {
@@ -428,6 +551,7 @@ textarea {
     grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
     justify-content: center;
     position: relative;
+    cursor: url("/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
   }
 
   .box {
@@ -439,13 +563,14 @@ textarea {
   }
 
   .gameControl_btn {
-    width: 10em;
+    width: 11em;
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
   }
 
   .gameControl_box {
-    width: 70%;
+    width: 80%;
     background: #084c61;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
@@ -469,10 +594,11 @@ textarea {
 
   .message-container {
     font-family: "Dokdo", cursive;
-    padding: 0em 1em;
+    margin: 1em auto;
+    padding: 0.5em 2.5em;
     background: #db3a34;
     color: white;
-    border-radius: 5px;
+    border-radius: 1px;
     text-align: center;
   }
 
@@ -508,8 +634,10 @@ textarea {
   }
 
   button {
+    padding: 0.4em 1.5em;
     margin: 1vh;
     font-size: 2vh;
+    cursor: url("/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
   }
 
   .occupied {
@@ -552,7 +680,12 @@ textarea {
   #total-wins {
     font-weight: bold;
   }
-
+  #dark-light-btn {
+    width: 11em;
+    background-color: #094b61;
+    color: #ffc857;
+    border-radius: 50px;
+  }
   footer {
     background: #177e89;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
@@ -668,9 +801,9 @@ textarea {
 /* Style adjustments for viewports that meet the condition */
 
 @media print,
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 1.25dppx),
-(min-resolution: 120dpi) {
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
 
@@ -681,7 +814,6 @@ textarea {
      ========================================================================== */
 
 @media print {
-
   *,
   *::before,
   *::after {
