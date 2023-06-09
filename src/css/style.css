@@ -101,27 +101,32 @@ textarea {
 #rollDice {
   background-color: #db3a34;
   color: #ffc857;
+  cursor: url("../../docs/images/UFO_Blue_cursor.png"), auto;
 }
 
 #clear-btn {
   background-color: #177e89;
   color: #ffc857;
+  cursor: url("../../docs/images/UFO_Blue_cursor.png"), auto;
 }
 
 #newGame-btn {
   background-color: #094b61;
   color: #ffc857;
+  cursor: url("../../docs/images/UFO_Blue_cursor.png"), auto;
 }
 
 #skip-btn {
   background: #ffffff;
   color: #094b61;
   border-radius: 24px;
+  cursor: url("../../docs/images/UFO_Blue_cursor.png"), auto;
 }
 
 #submit-btn {
   background-color: #177e89;
   color: #ffc857;
+  cursor: url("../../docs/images/UFO_Blue_cursor.png"), auto;
 }
 
 #dark-light-btn {
@@ -130,14 +135,17 @@ textarea {
   color: #ffc857;
   border-radius: 50px;
   height: 2em;
+  cursor: url("../../docs/images/UFO_Blue_cursor.png"), auto;
 }
 
 #option-btn {
   background-color: #094b61;
   color: #ffc857;
+  cursor: url("../../docs/images/UFO_Blue_cursor.png"), auto;
 }
 
 button {
+  cursor: url("../../docs/images/UFO_Blue_cursor.png"), auto;
   font-family: "Dokdo", cursive;
   color: #fff;
   background-color: rgb(250, 112, 112);
@@ -152,6 +160,7 @@ button {
 button:hover {
   background-color: #f70f0f;
   color: #ffffff;
+  cursor: url("../../docs/images/UFO_Blue_cursor.png"), auto;
 }
 @media only screen and (max-width: 600px) {
   body {
@@ -183,7 +192,6 @@ button:hover {
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
       rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     text-align: center;
-    width: 40%;
     border: 6px solid #db3a34;
   }
   .occupied {
@@ -194,7 +202,8 @@ button:hover {
     background-color: #db3a34;
   }
   .message-container {
-    padding: 0em 0.1em;
+    font-size: 2vh;
+    width: 40%;
     background: #db3a34;
     color: white;
     border-radius: 1px;
@@ -203,8 +212,8 @@ button:hover {
   .game-board {
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px;
-    grid-template-rows: 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px;
+    grid-template-columns: 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px;
+    grid-template-rows: 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px;
     justify-content: center;
   }
   .box {
@@ -223,8 +232,8 @@ button:hover {
 
   .mobile {
     box-sizing: border-box;
-    width: 90%;
-    margin: 0.1em 0;
+    width: 100%;
+    margin: 0.2em 0;
     display: flex;
     justify-content: space-evenly;
     align-content: center;
