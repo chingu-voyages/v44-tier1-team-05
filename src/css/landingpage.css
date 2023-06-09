@@ -65,7 +65,7 @@ h6 {
 
 body {
   box-sizing: border-box;
-  background-image: url("/docs/images/wood-grain-texture.jpg");
+  background-image: url("docs/images/wood-grain-texture.jpg");
   background-size: cover;
   background-position: right;
   min-height: 100vh;
