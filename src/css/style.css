@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  background: url("/docs/images/graph_paper_large.jpg");
+  background: url("docs/images/graph_paper_large.jpg");
   background-size: cover;
   background-position: left;
 }
@@ -159,7 +159,7 @@ button:hover {
     display: grid;
     place-items: center;
     font-family: "Dokdo", cursive;
-    cursor: url("/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
+    cursor: url("docs/images/Rocket_Ship_Blue_cursor.png"), auto;
   }
   header {
     position: fixed;
@@ -308,7 +308,7 @@ button:hover {
     display: grid;
     place-items: center;
     font-family: "Dokdo", cursive;
-    cursor: url("/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
+    cursor: url("docs/images/Rocket_Ship_Blue_cursor.png"), auto;
   }
 
   header {
@@ -482,7 +482,7 @@ button:hover {
     justify-content: center;
     font-family: "Dokdo", cursive;
     box-sizing: border-box;
-    cursor: url("/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
+    cursor: url("docs/images/Rocket_Ship_Blue_cursor.png"), auto;
   }
 
   header {
@@ -551,7 +551,7 @@ button:hover {
     grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
     justify-content: center;
     position: relative;
-    cursor: url("/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
+    cursor: url("docs/images/Rocket_Ship_Blue_cursor.png"), auto;
   }
 
   .box {
@@ -637,7 +637,7 @@ button:hover {
     padding: 0.4em 1.5em;
     margin: 1vh;
     font-size: 2vh;
-    cursor: url("/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
+    cursor: url("docs/images/Rocket_Ship_Blue_cursor.png"), auto;
   }
 
   .occupied {

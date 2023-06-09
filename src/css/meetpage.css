@@ -69,12 +69,12 @@ body {
   display: grid;
   place-items: center;
   font-family: "Dokdo", cursive;
-  background-image: url("/docs/images/wood-grain-texture.jpg");
+  background-image: url("docs/images/wood-grain-texture.jpg");
 
   min-height: 100vh;
   text-align: center;
   font-weight: 400;
-  cursor: url("/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
+  cursor: url("docs/images/Rocket_Ship_Blue_cursor.png"), auto;
 }
 
 header h1 {
@@ -143,5 +143,5 @@ footer a {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
     0px 4px 4px rgba(0, 0, 0, 0.1);
   color: white;
-  cursor: url("/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
+  cursor: url("docs/images/Rocket_Ship_Blue_cursor.png"), auto;
 }
