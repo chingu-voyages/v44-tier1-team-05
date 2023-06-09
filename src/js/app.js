@@ -472,18 +472,3 @@ darkLightButton.addEventListener("click", function () {
   const body = document.querySelector("body");
   body.classList.toggle("dark-mode");
 });
-
-const cursor = document.querySelector(".cursor");
-const cursorOriginX = 10; // Adjust according to the cursor image
-const cursorOriginY = 10; // Adjust according to the cursor image
-
-const moveCursor = (e) => {
-  const mouseY = e.clientY;
-  const mouseX = e.clientX;
-
-  cursor.style.transform = `translate3d(${mouseX - cursorOriginX}px, ${
-    mouseY - cursorOriginY
-  }px, 0)`;
-};
-
-window.addEventListener("mousemove", moveCursor);

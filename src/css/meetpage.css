@@ -70,37 +70,27 @@ body {
   place-items: center;
   font-family: "Dokdo", cursive;
   background-image: url("/docs/images/wood-grain-texture.jpg");
-  background-size: cover;
+
+  min-height: 100vh;
   text-align: center;
   font-weight: 400;
-}
-
-header {
-  position: absolute;
-  width: 100%;
-  height: 6em;
-  left: 0px;
-  top: 0px;
-  background: #177e89;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
-    0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: url("/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
 }
 
 header h1 {
-  margin: 0 auto;
-  font-style: normal;
-  font-weight: 400;
+  color: white;
   font-size: 60px;
-  line-height: 120px;
-  text-align: center;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
-    0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 1), 0px 4px 4px rgba(0, 0, 0, 1),
+    0px 4px 4px rgba(0, 0, 0, 1);
 }
 
 main {
-  margin-top: 1em;
+  padding: 1em;
   color: #084c61;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  background: rgba(129, 122, 125, 1);
+  box-shadow: -1px 4px 4px 4px rgba(0, 0, 0, 0.25),
+    0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 main p {
@@ -110,206 +100,48 @@ main p {
 
 .chingu_team {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
 }
-.chingu_member {
-  margin: 0 1em;
-}
-.chingu_member p,
+
 .chingu_member a {
   font-weight: bold;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
-    0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 30px;
   color: #084c61;
   text-decoration: none;
 }
-
+.chingu_member p {
+  font-weight: bold;
+  font-size: 30px;
+  color: #084c61;
+  letter-spacing: 0.05em;
+}
 .chingu_member p {
   font-size: 20px;
 }
 
 .back_link {
-  position: relative;
-  top: 1.5em;
   color: White;
   font-size: 20px;
 }
 .chingu_acknowledgements h1 {
-  margin-top: 1em;
-  color: rgba(255, 200, 87, 1);
+  margin-top: 0.2em;
+  color: rgb(255, 200, 87, 1);
+  text-decoration: underline;
 }
 
 ul li {
+  margin-left: -1.5em;
   list-style: none;
   color: #084c61;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
-    0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 25px;
+  font-weight: bold;
 }
 
-footer {
-  background: #177e89;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
-    0px 4px 4px rgba(0, 0, 0, 0.25);
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}
-
-.footer_info {
-  position: relative;
-  top: 10px;
-}
-
-.footer_infotwo {
-  position: relative;
-  bottom: 8px;
-}
-
-@media only screen and (max-width: 800px) {
-  */ *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-  /*
-  2. Remove default margin
-*/
-  * {
-    margin: 0;
-  }
-  /*
-  3. Allow percentage-based heights in the application
-*/
-  html,
-  body {
-    height: 100%;
-  }
-  /*
-  Typographic tweaks!
-  4. Add accessible line-height
-  5. Improve text rendering
-*/
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  /*
-  6. Improve media defaults
-*/
-  img,
-  picture,
-  video,
-  canvas,
-  svg {
-    display: block;
-    max-width: 100%;
-  }
-  /*
-  7. Remove built-in form typography styles
-*/
-  input,
-  button,
-  textarea,
-  select {
-    font: inherit;
-  }
-  /*
-  8. Avoid text overflows
-*/
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    overflow-wrap: break-word;
-  }
-  /*
-  9. Create a root stacking context
-*/
-  #root,
-  #__next {
-    isolation: isolate;
-  }
-  body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  header {
-    position: absolute;
-    width: 100%;
-    height: 6em;
-    left: 0px;
-    top: 0px;
-    background: #177e89;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
-      0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-
-  header h1 {
-    margin: 0 auto;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 120px;
-    text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-      0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  .chingu_team {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-  }
-  main h1 {
-    margin: 0;
-    font-size: 25px;
-  }
-  main p {
-    color: rgba(255, 200, 87, 1);
-    font-size: 25px;
-  }
-  .chingu_member p,
-  .chingu_member a {
-    font-size: 15px;
-    color: white;
-  }
-
-  ul li {
-    font-size: 15px;
-  }
-  .back_link {
-    position: relative;
-    top: 0.2em;
-    color: White;
-    font-size: 20px;
-  }
-  footer {
-    background: #177e89;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
-      0px 4px 4px rgba(0, 0, 0, 0.25);
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-  }
-
-  .footer_info {
-    position: relative;
-    top: 10px;
-  }
-
-  .footer_infotwo {
-    position: relative;
-    bottom: 8px;
-  }
+footer,
+footer a {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
+    0px 4px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+  cursor: url("/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
 }
