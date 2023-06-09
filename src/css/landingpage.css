@@ -65,13 +65,13 @@ h6 {
 
 body {
   box-sizing: border-box;
-  background-image: url("src/css/docs/images/wood-grain-texture.jpg");
+  background-image: url("v44-tier1-team-05/docs/images/wood-grain-texture.jpg");
   background-size: cover;
   background-position: right;
   min-height: 100vh;
   display: grid;
   place-items: center;
-  cursor: url("src/css/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
+  cursor: url("v44-tier1-team-05/docs/images/Rocket_Ship_Blue_cursor.png"), auto;
 }
 
 h1 {
