@@ -121,7 +121,7 @@ If you aren’t yet a member of Chingu we invite you to join us. Chingu helps me
 
 - [Chingu Voyages](https://www.chingu.io/) -- Initial work -
 - [Jim Medlock](https://github.com/jdmedlock) -- Initial work --
-- [Angela L](https://github.com/awlFCCamp) -- Team Mentor
+- [Angela L](https://github.com/awlFCCamp) -- Team Mentor --
 - [John Foughty](https://github.com/Foughty) -- Designer --
 - [Alex Papparotto-Goodman](https://github.com/goodman2814) -- Developer --
 - [Gabriela de Paula](https://github.com/PaulaR-05) -- Developer --
