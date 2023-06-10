@@ -39,6 +39,9 @@ The game will end when one of these conditions are reached:
 
 ### Screenshot
 
+![](./images/app_01.png)
+![](./images/app_02.png)
+
 ### Links
 
 -[Repository](https://github.com/chingu-voyages/v44-tier1-team-05)
@@ -87,6 +90,7 @@ The game will end when one of these conditions are reached:
         after filling in the grid from the current roll of the dice.
 
 - Grid
+
   - [ ] When the dice are rolled the user will be able to click on squares
         to mark their array.
   - [ ] When a square is clicked it's color will change from the color used
@@ -95,20 +99,12 @@ The game will end when one of these conditions are reached:
         numbers on the dice an error message must be issued and the user should be
         given the option to re-mark the grid to match the dice.
 
-### Extras (Not Required)
+### Extras
 
-- [ ] Implement the game to allow human-to-human competition between 2
-      players or human-vs-computer competition.
-- [ ] Allow the user to choose the color to be used to fill in the grid
-- [ ] Maintain player metrics across sessions for the last 3 games that have
-      been played
-- [ ] Allow the user to specify the dimensions of the grid
 - [ ] Add a countdown timer showing time remaining in the game and create an
       input field to allow the user to set the starting number of minutes and seconds.
 - [ ] Animate the rolling of the dice
 - [ ] Play a sound to simulate the rolling dice
-- [ ] Add a graph to the leader board to show the number of times a number
-      has been rolled.
 - [ ] Support dark/light mode
 
 ### Built With
@@ -126,10 +122,10 @@ If you aren’t yet a member of Chingu we invite you to join us. Chingu helps me
 
 - [Chingu Voyages](https://www.chingu.io/) -- Initial work -
 - [Jim Medlock](https://github.com/jdmedlock) -- Initial work --
+- [Angela L](https://github.com/awlFCCamp) -- Team Mentor
+- [John Foughty](https://github.com/Foughty) -- Designer --
 - [Alex Papparotto-Goodman](https://github.com/goodman2814) -- Developer --
 - [Gabriela de Paula](https://github.com/PaulaR-05) -- Developer --
-- [John Foughty](https://github.com/Foughty) -- Designer --
-- [Moriah S](https://github.com/MoriahSWalker) -- Developer --
 - [Nazgul Duisenbay](https://github.com/nazgul7d) -- Developer --
 
 ## Acknowledgements
