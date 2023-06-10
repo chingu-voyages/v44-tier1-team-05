@@ -69,12 +69,12 @@ body {
   display: grid;
   place-items: center;
   font-family: "Dokdo", cursive;
-  background-image: url("docs/images/wood-grain-texture.jpg");
+  background-image: url("../../docs/images/wood-grain-texture.jpg");
 
   min-height: 100vh;
   text-align: center;
   font-weight: 400;
-  cursor: url("docs/images/Rocket_Ship_Blue_cursor.png"), auto;
+  cursor: url("../../docs/images/Rocket_Ship_Blue_cursor.png"), auto;
 }
 
 header h1 {
@@ -85,7 +85,7 @@ header h1 {
 }
 
 main {
-  padding: 1em;
+  padding: 0.5em;
   color: #084c61;
   border-radius: 25px;
   background: rgba(129, 122, 125, 1);
@@ -112,7 +112,7 @@ main p {
 }
 .chingu_member p {
   font-weight: bold;
-  font-size: 30px;
+
   color: #084c61;
   letter-spacing: 0.05em;
 }
@@ -125,7 +125,7 @@ main p {
   font-size: 20px;
 }
 .chingu_acknowledgements h1 {
-  margin-top: 0.2em;
+  margin-top: 0.1em;
   color: rgb(255, 200, 87, 1);
   text-decoration: underline;
 }
@@ -143,5 +143,5 @@ footer a {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
     0px 4px 4px rgba(0, 0, 0, 0.1);
   color: white;
-  cursor: url("docs/images/Rocket_Ship_Blue_cursor.png"), auto;
+  cursor: url("../../docs/images/Rocket_Ship_Blue_cursor.png"), auto;
 }
