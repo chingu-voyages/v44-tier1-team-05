@@ -101,8 +101,7 @@ The game will end when one of these conditions are reached:
 
 ### Extras
 
-- [ ] Add a countdown timer showing time remaining in the game and create an
-      input field to allow the user to set the starting number of minutes and seconds.
+- [ ] Add a countdown timer showing time remaining in the game 
 - [ ] Animate the rolling of the dice
 - [ ] Play a sound to simulate the rolling dice
 - [ ] Support dark/light mode
