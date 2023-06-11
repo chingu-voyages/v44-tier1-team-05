@@ -90,14 +90,6 @@ textarea {
 /* ==========================================================================
      Author's custom styles
      ========================================================================== */
-.occupied {
-  background-color: #ffc857;
-}
-
-.block {
-  background-color: #db3a34;
-}
-
 #rollDice {
   background-color: #db3a34;
   color: #ffc857;
