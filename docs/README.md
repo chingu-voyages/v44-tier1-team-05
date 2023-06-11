@@ -101,8 +101,7 @@ The game will end when one of these conditions are reached:
 
 ### Extras
 
-- [ ] Add a countdown timer showing time remaining in the game and create an
-      input field to allow the user to set the starting number of minutes and seconds.
+- [ ] Add a countdown timer showing time remaining in the game 
 - [ ] Animate the rolling of the dice
 - [ ] Play a sound to simulate the rolling dice
 - [ ] Support dark/light mode
@@ -122,7 +121,7 @@ If you aren’t yet a member of Chingu we invite you to join us. Chingu helps me
 
 - [Chingu Voyages](https://www.chingu.io/) -- Initial work -
 - [Jim Medlock](https://github.com/jdmedlock) -- Initial work --
-- [Angela L](https://github.com/awlFCCamp) -- Team Mentor
+- [Angela L](https://github.com/awlFCCamp) -- Team Mentor --
 - [John Foughty](https://github.com/Foughty) -- Designer --
 - [Alex Papparotto-Goodman](https://github.com/goodman2814) -- Developer --
 - [Gabriela de Paula](https://github.com/PaulaR-05) -- Developer --

@@ -90,14 +90,6 @@ textarea {
 /* ==========================================================================
      Author's custom styles
      ========================================================================== */
-.occupied {
-  background-color: #ffc857;
-}
-
-.block {
-  background-color: #db3a34;
-}
-
 #rollDice {
   background-color: #db3a34;
   color: #ffc857;
@@ -194,11 +186,6 @@ button:hover {
     text-align: center;
     border: 6px solid #db3a34;
   }
-
-
-  .block {
-    background-color: #db3a34;
-  }
   .message-container {
     font-size: 2vh;
     width: 40%;
@@ -221,6 +208,14 @@ button:hover {
     border-radius: 5px;
     margin: 0.08em;
   }
+   .occupied {
+    background-color: #ffc857;
+  }
+   
+  .block {
+    background-color: #db3a34;
+  }
+   
   img {
     width: 3vh;
     padding: 0.5vh;
@@ -228,9 +223,6 @@ button:hover {
     animation: none;
   }
 
-  .occupied {
-    background-color: #ffc857;
-  }
   .mobile {
     box-sizing: border-box;
     width: 100%;
