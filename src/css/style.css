@@ -194,9 +194,7 @@ button:hover {
     text-align: center;
     border: 6px solid #db3a34;
   }
-  .occupied {
-    background-color: #ffc857;
-  }
+
 
   .block {
     background-color: #db3a34;
@@ -230,6 +228,9 @@ button:hover {
     animation: none;
   }
 
+  .occupied {
+    background-color: #ffc857;
+  }
   .mobile {
     box-sizing: border-box;
     width: 100%;
