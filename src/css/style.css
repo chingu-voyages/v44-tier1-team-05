@@ -208,6 +208,14 @@ button:hover {
     border-radius: 5px;
     margin: 0.08em;
   }
+   .occupied {
+    background-color: #ffc857;
+  }
+   
+  .block {
+    background-color: #db3a34;
+  }
+   
   img {
     width: 3vh;
     padding: 0.5vh;
@@ -215,13 +223,6 @@ button:hover {
     animation: none;
   }
 
-  .occupied {
-    background-color: #ffc857;
-  }
-   
-  .block {
-    background-color: #db3a34;
-  }
   .mobile {
     box-sizing: border-box;
     width: 100%;
